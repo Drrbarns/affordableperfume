@@ -6,7 +6,7 @@ import { useCMS } from '@/context/CMSContext';
 
 export default function FAQsPage() {
   const { getSetting } = useCMS();
-  const siteName = getSetting('site_name') || 'Store';
+  const siteName = getSetting('site_name') || '';
   const siteEmail = getSetting('contact_email') || 'support@yourstore.com';
   const sitePhone = getSetting('contact_phone') || '+233 20 959 7443';
 

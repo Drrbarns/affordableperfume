@@ -16,10 +16,10 @@ export const viewport: Viewport = {
 const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://example.com';
 
 async function getSiteSettings() {
-  let siteName = 'Affordable perfumegh';
-  let siteTagline = 'Quality Products & Supplies';
-  let siteDescription = "Shop quality products delivered across Ghana.";
-  let siteLogo = '/logo.png';
+  let siteName = '';
+  let siteTagline = '';
+  let siteDescription = "";
+  let siteLogo = '';
 
   try {
     const { data } = await supabase.from('site_settings').select('key, value');
@@ -48,8 +48,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(siteUrl),
     title: {
-      default: `${siteName} | ${siteTagline}`,
-      template: `%s | ${siteName}`
+      default: [siteName, siteTagline].filter(Boolean).join(' | '),
+      template: siteName ? `%s | ${siteName}` : `%s`
     },
     description: siteDescription,
     keywords: [

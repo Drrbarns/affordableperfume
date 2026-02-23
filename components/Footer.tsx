@@ -27,9 +27,9 @@ export default function Footer() {
   const { getSetting } = useCMS();
   const [email, setEmail] = useState('');
 
-  const siteName = getSetting('site_name') || 'Affordable perfumegh';
+  const siteName = getSetting('site_name') || '';
   const siteLogo = getSetting('site_logo') || '';
-  const siteTagline = getSetting('site_tagline') || 'Affordable Luxury Scents & More';
+  const siteTagline = getSetting('site_tagline') || '';
   const contactEmail = getSetting('contact_email') || '';
   const contactPhone = getSetting('contact_phone') || '+233 209 597 443';
   const socialFacebook = getSetting('social_facebook') || '';
