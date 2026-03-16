@@ -29,6 +29,8 @@ function getFriendlyError(message: string): string {
 
 export default function SignupPage() {
   const router = useRouter();
+  const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+  const redirectTo = searchParams?.get('redirect') || '/account';
   const errorRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     firstName: '',
@@ -131,8 +133,7 @@ export default function SignupPage() {
         if (!data.session) {
           setSuccess(true);
         } else {
-          // Auto-login success (if email confirming is off)
-          router.push('/account');
+          router.push(redirectTo);
           router.refresh();
         }
       }

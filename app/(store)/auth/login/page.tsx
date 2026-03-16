@@ -8,6 +8,8 @@ import { useRecaptcha } from '@/hooks/useRecaptcha';
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+  const redirectTo = searchParams?.get('redirect') || '/account';
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -61,8 +63,8 @@ export default function LoginPage() {
       }
 
       if (data.session) {
-        router.push('/account');
-        router.refresh(); // Refresh to update auth state in other components
+        router.push(redirectTo);
+        router.refresh();
       }
     } catch (error: any) {
       console.error('Login error:', error);

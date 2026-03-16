@@ -77,6 +77,7 @@ function ShopContent() {
                 product_images!product_id(url, position),
                 product_variants(id, name, price, quantity, option1, option2, image_url)
               `, { count: 'exact' })
+              .or('is_wholesale.is.null,is_wholesale.eq.false')
               .order('position', { foreignTable: 'product_images', ascending: true });
 
             // Search

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://example.com';
+  const baseUrl = (process.env.NEXT_PUBLIC_APP_URL || 'https://example.com').replace(/\/$/, '');
 
   return {
     rules: [
@@ -14,9 +14,34 @@ export default function robots(): MetadataRoute.Robots {
           '/checkout',
           '/cart',
           '/account/',
+          '/auth/',
+          '/pay/',
+          '/wholesale',
+          '/wholesale/',
+          '/order-success',
+          '/pwa-settings',
+          '/maintenance',
+          '/offline',
+        ],
+      },
+      {
+        userAgent: 'Googlebot',
+        allow: '/',
+        disallow: [
+          '/admin/',
+          '/api/',
+          '/checkout',
+          '/cart',
+          '/account/',
+          '/auth/',
+          '/pay/',
+          '/wholesale',
+          '/wholesale/',
+          '/order-success',
         ],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   };
 }

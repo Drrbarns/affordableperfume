@@ -17,6 +17,9 @@ export default function SiteSettings() {
         contact_address: '',
         site_logo: '',
         site_tagline: '',
+        site_description: '',
+        site_url: '',
+        og_image: '',
         social_instagram: '',
         announcement_text: '',
         announcement_bg_color: '#1e40af'
@@ -190,6 +193,52 @@ export default function SiteSettings() {
                                     rows={3}
                                     className="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-blue-500 focus:border-blue-500"
                                 />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr className="border-gray-100" />
+
+                    {/* SEO & Social Sharing */}
+                    <div className="grid md:grid-cols-3 gap-6">
+                        <div className="col-span-1">
+                            <h3 className="text-lg font-semibold text-gray-900">SEO & Social Sharing</h3>
+                            <p className="text-sm text-gray-500 mt-1">Meta tags, Open Graph, and social preview.</p>
+                        </div>
+                        <div className="col-span-2 space-y-4">
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Site URL</label>
+                                <input
+                                    type="url"
+                                    value={settings.site_url}
+                                    onChange={(e) => handleChange('site_url', e.target.value)}
+                                    className="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder="https://yoursite.com"
+                                />
+                                <p className="text-xs text-gray-500 mt-1">Canonical URL for sitemap, OG tags, and structured data.</p>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Meta Description</label>
+                                <textarea
+                                    value={settings.site_description}
+                                    onChange={(e) => handleChange('site_description', e.target.value)}
+                                    rows={2}
+                                    maxLength={160}
+                                    className="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder="Quality perfumes and products delivered across Ghana..."
+                                />
+                                <p className="text-xs text-gray-500 mt-1">160 chars max. Used in search results and social shares.</p>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">OG Image (Social Share)</label>
+                                <input
+                                    type="text"
+                                    value={settings.og_image}
+                                    onChange={(e) => handleChange('og_image', e.target.value)}
+                                    className="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder="https://... or /og-default.png"
+                                />
+                                <p className="text-xs text-gray-500 mt-1">1200×630px recommended. Falls back to logo if empty.</p>
                             </div>
                         </div>
                     </div>

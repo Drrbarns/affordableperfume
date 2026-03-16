@@ -113,6 +113,53 @@ export async function middleware(request: NextRequest) {
     }
 
     // ============================================================
+    // Wholesale route protection (require login, except /apply)
+    // ============================================================
+    if (pathname === '/wholesale') {
+        response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+        response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate');
+
+        let token: string | undefined;
+        token = request.cookies.get('sb-access-token')?.value;
+
+        if (!token) {
+            const projectRef = supabaseUrl?.split('//')[1]?.split('.')[0];
+            token = request.cookies.get(`sb-${projectRef}-auth-token`)?.value;
+        }
+
+        if (!token) {
+            for (const [name, cookie] of request.cookies) {
+                if (name.startsWith('sb-') && (name.endsWith('-auth-token') || name.includes('auth'))) {
+                    try {
+                        const parsed = JSON.parse(cookie.value);
+                        if (Array.isArray(parsed) && parsed[0]) {
+                            token = parsed[0];
+                        } else if (typeof parsed === 'object' && parsed.access_token) {
+                            token = parsed.access_token;
+                        } else if (typeof parsed === 'string') {
+                            token = parsed;
+                        }
+                    } catch {
+                        token = cookie.value;
+                    }
+                    if (token) break;
+                }
+            }
+        }
+
+        if (!token) {
+            const loginUrl = new URL('/auth/login', request.url);
+            loginUrl.searchParams.set('redirect', '/wholesale');
+            return NextResponse.redirect(loginUrl);
+        }
+    }
+
+    // Wholesale apply page — noindex but allow without login
+    if (pathname.startsWith('/wholesale/apply')) {
+        response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+    }
+
+    // ============================================================
     // API route security headers
     // ============================================================
     if (pathname.startsWith('/api/')) {
@@ -127,5 +174,7 @@ export const config = {
     matcher: [
         '/admin/:path*',
         '/api/:path*',
+        '/wholesale/:path*',
+        '/wholesale',
     ],
 };

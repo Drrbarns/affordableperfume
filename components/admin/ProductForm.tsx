@@ -28,6 +28,9 @@ export default function ProductForm({ initialData, isEditMode = false }: Product
     const [productOrigin, setProductOrigin] = useState(initialData?.metadata?.origin || '');
     const [status, setStatus] = useState(initialData?.status || 'Active');
     const [featured, setFeatured] = useState(initialData?.featured || false);
+    const [isWholesale, setIsWholesale] = useState(initialData?.is_wholesale || false);
+    const [wholesalePrice, setWholesalePrice] = useState(initialData?.wholesale_price || '');
+    const [wholesaleMoq, setWholesaleMoq] = useState(initialData?.wholesale_moq || '');
     const [preorderShipping, setPreorderShipping] = useState(initialData?.metadata?.preorder_shipping || '');
     const [activeTab, setActiveTab] = useState('general');
 
@@ -288,11 +291,14 @@ export default function ProductForm({ initialData, isEditMode = false }: Product
                 category_id: categoryId || null,
                 price: parseFloat(price) || 0,
                 compare_at_price: comparePrice ? parseFloat(comparePrice) : null,
-                sku: sku || generateSku(), // Auto-generate if empty
+                sku: sku || generateSku(),
                 quantity: hasVariants ? variantStockTotal : (parseInt(stock) || 0),
                 moq: parseInt(moq) || 1,
+                is_wholesale: isWholesale,
+                wholesale_price: isWholesale && wholesalePrice ? parseFloat(wholesalePrice) : null,
+                wholesale_moq: isWholesale && wholesaleMoq ? parseInt(wholesaleMoq) : null,
                 status: status.toLowerCase(),
-                featured,
+                featured: isWholesale ? false : featured,
                 seo_title: seoTitle,
                 seo_description: metaDescription,
                 tags: (keywords as string).split(',').map((k: string) => k.trim()).filter(Boolean),
@@ -526,11 +532,74 @@ export default function ProductForm({ initialData, isEditMode = false }: Product
                                     type="checkbox"
                                     checked={featured}
                                     onChange={(e) => setFeatured(e.target.checked)}
-                                    className="w-5 h-5 text-blue-700 border-gray-300 rounded focus:ring-blue-500 cursor-pointer"
+                                    disabled={isWholesale}
+                                    className="w-5 h-5 text-blue-700 border-gray-300 rounded focus:ring-blue-500 cursor-pointer disabled:opacity-50"
                                 />
-                                <label className="text-gray-900 font-medium">
+                                <label className={`font-medium ${isWholesale ? 'text-gray-400' : 'text-gray-900'}`}>
                                     Feature this product on homepage
                                 </label>
+                            </div>
+
+                            {/* Wholesale Section */}
+                            <div className="pt-6 border-t border-gray-100">
+                                <div className="flex items-center space-x-3 mb-4">
+                                    <input
+                                        type="checkbox"
+                                        checked={isWholesale}
+                                        onChange={(e) => {
+                                            setIsWholesale(e.target.checked);
+                                            if (e.target.checked) setFeatured(false);
+                                        }}
+                                        className="w-5 h-5 text-amber-600 border-gray-300 rounded focus:ring-amber-500 cursor-pointer"
+                                    />
+                                    <label className="text-gray-900 font-medium">
+                                        Wholesale Product
+                                    </label>
+                                    <span className="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-semibold">
+                                        Wholesale Only
+                                    </span>
+                                </div>
+
+                                {isWholesale && (
+                                    <div className="ml-8 p-4 bg-amber-50 border border-amber-200 rounded-lg space-y-4">
+                                        <p className="text-sm text-amber-800">
+                                            <i className="ri-information-line mr-1"></i>
+                                            This product will only be visible on the wholesale shop page and will not appear on the main storefront.
+                                        </p>
+                                        <div className="grid md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                                                    Wholesale Price (GH₵) *
+                                                </label>
+                                                <div className="relative">
+                                                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 font-semibold">GH₵</span>
+                                                    <input
+                                                        type="number"
+                                                        value={wholesalePrice}
+                                                        onChange={(e) => setWholesalePrice(e.target.value)}
+                                                        className="w-full pl-16 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                                                        step="0.01"
+                                                        placeholder="0.00"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                                                    Wholesale MOQ
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    value={wholesaleMoq}
+                                                    onChange={(e) => setWholesaleMoq(e.target.value)}
+                                                    min="1"
+                                                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                                                    placeholder="e.g., 12"
+                                                />
+                                                <p className="text-xs text-gray-500 mt-1">Minimum quantity for wholesale buyers</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
 
                             <div>

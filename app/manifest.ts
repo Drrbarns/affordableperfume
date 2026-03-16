@@ -23,54 +23,26 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
 
     return {
         name: siteName,
-        short_name: siteName.split(' ')[0],
+        short_name: siteName.split(' ')[0] || 'Store',
         description: siteDescription,
         start_url: '/?source=pwa',
+        scope: '/',
         display: 'standalone',
+        orientation: 'portrait',
         background_color: '#ffffff',
         theme_color: '#2563eb',
+        dir: 'ltr',
+        lang: 'en',
+        categories: ['shopping', 'lifestyle', 'fashion'],
         icons: [
-            {
-                src: '/icons/icon-72x72.png',
-                sizes: '72x72',
-                type: 'image/png',
-            },
-            {
-                src: '/icons/icon-96x96.png',
-                sizes: '96x96',
-                type: 'image/png',
-            },
-            {
-                src: '/icons/icon-128x128.png',
-                sizes: '128x128',
-                type: 'image/png',
-            },
-            {
-                src: '/icons/icon-144x144.png',
-                sizes: '144x144',
-                type: 'image/png',
-            },
-            {
-                src: '/icons/icon-152x152.png',
-                sizes: '152x152',
-                type: 'image/png',
-            },
-            {
-                src: '/icons/icon-192x192.png',
-                sizes: '192x192',
-                type: 'image/png',
-                purpose: 'maskable',
-            },
-            {
-                src: '/icons/icon-384x384.png',
-                sizes: '384x384',
-                type: 'image/png',
-            },
-            {
-                src: '/icons/icon-512x512.png',
-                sizes: '512x512',
-                type: 'image/png',
-            },
+            { src: '/icon', sizes: '32x32', type: 'image/png', purpose: 'any' },
+            { src: '/apple-icon', sizes: '180x180', type: 'image/png', purpose: 'any' },
+            { src: '/logo.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
+        ],
+        shortcuts: [
+            { name: 'Shop', short_name: 'Shop', description: 'Browse all products', url: '/shop', icons: [{ src: '/icon', sizes: '32x32' }] },
+            { name: 'Cart', short_name: 'Cart', description: 'View your cart', url: '/cart', icons: [{ src: '/icon', sizes: '32x32' }] },
+            { name: 'Track Order', short_name: 'Track', description: 'Track order status', url: '/order-tracking', icons: [{ src: '/icon', sizes: '32x32' }] },
         ],
     };
 }

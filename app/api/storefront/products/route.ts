@@ -40,8 +40,8 @@ export async function GET(request: Request) {
             `)
             .order('created_at', { ascending: false });
 
-        // Always filter active products
-        query = query.eq('status', 'active');
+        // Always filter active, non-wholesale products
+        query = query.eq('status', 'active').or('is_wholesale.is.null,is_wholesale.eq.false');
 
         if (featured) {
             query = query.eq('featured', true).limit(limit);

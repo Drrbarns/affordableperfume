@@ -254,6 +254,11 @@ export default function AdminLayout({
       moduleId: 'site-settings'
     },
     {
+      title: 'Wholesalers',
+      icon: 'ri-store-2-line',
+      path: '/admin/wholesalers'
+    },
+    {
       title: 'SMS Debugger',
       icon: 'ri-message-2-line',
       path: '/admin/test-sms'

@@ -6,7 +6,10 @@ import { supabase } from '@/lib/supabase';
 interface SiteSettings {
     site_name: string;
     site_tagline: string;
+    site_description: string;
+    site_url: string;
     site_logo: string;
+    og_image: string;
     contact_email: string;
     contact_phone: string;
     contact_address: string;
@@ -68,7 +71,10 @@ interface CMSContextType {
 const defaultSettings: SiteSettings = {
     site_name: '',
     site_tagline: '',
+    site_description: '',
+    site_url: '',
     site_logo: '',
+    og_image: '',
     contact_email: '',
     contact_phone: '',
     contact_address: '',

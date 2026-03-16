@@ -13,13 +13,13 @@ export const viewport: Viewport = {
   themeColor: '#2563eb',
 };
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://example.com';
-
 async function getSiteSettings() {
   let siteName = '';
   let siteTagline = '';
   let siteDescription = "";
   let siteLogo = '';
+  let siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://example.com';
+  let ogImage = '';
 
   try {
     const { data } = await supabase.from('site_settings').select('key, value');
@@ -33,32 +33,42 @@ async function getSiteSettings() {
       if (settings.site_tagline) siteTagline = settings.site_tagline;
       if (settings.site_description) siteDescription = settings.site_description;
       if (settings.site_logo) siteLogo = settings.site_logo;
+      if (settings.site_url) siteUrl = settings.site_url;
+      if (settings.og_image) ogImage = settings.og_image;
     }
   } catch (e) {
     // Fail gracefully to defaults
   }
 
-  return { siteName, siteTagline, siteDescription, siteLogo };
+  return { siteName, siteTagline, siteDescription, siteLogo, siteUrl, ogImage };
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { siteName, siteTagline, siteDescription, siteLogo } = await getSiteSettings();
-  const ogImage = siteLogo.startsWith('http') ? siteLogo : `${siteUrl}${siteLogo}`;
+  const { siteName, siteTagline, siteDescription, siteLogo, siteUrl, ogImage: ogImageSetting } = await getSiteSettings();
+  const baseUrl = siteUrl.replace(/\/$/, '');
+  const defaultDescription = 'Quality perfumes and products delivered across Ghana. Shop affordable fragrances, fashion, and more from Accra.';
+  const desc = siteDescription || defaultDescription;
+  const ogImage = ogImageSetting
+    ? (ogImageSetting.startsWith('http') ? ogImageSetting : `${baseUrl}${ogImageSetting}`)
+    : siteLogo
+      ? (siteLogo.startsWith('http') ? siteLogo : `${baseUrl}${siteLogo}`)
+      : `${baseUrl}/og-default`;
 
   return {
-    metadataBase: new URL(siteUrl),
+    metadataBase: new URL(baseUrl),
     title: {
       default: [siteName, siteTagline].filter(Boolean).join(' | '),
       template: siteName ? `%s | ${siteName}` : `%s`
     },
-    description: siteDescription,
+    description: desc,
     keywords: [
       siteName,
+      "Affordable Perfumes Ghana",
+      "Buy Perfumes Online Ghana",
+      "Fragrances Accra",
       "Online Store Ghana",
-      "Buy Dresses Online Ghana",
       "Electronics Ghana",
       "Bags and Shoes Accra",
-      "China Import Ghana",
       "Affordable Fashion Ghana",
       "Accra Online Shopping",
       "Ghana E-commerce",
@@ -79,22 +89,9 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     icons: {
-      icon: [
-        { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
-        { url: '/icons/icon-16x16.png', sizes: '16x16', type: 'image/png' },
-        { url: '/icons/icon-32x32.png', sizes: '32x32', type: 'image/png' },
-        { url: '/icons/icon-48x48.png', sizes: '48x48', type: 'image/png' },
-        { url: '/icons/icon-96x96.png', sizes: '96x96', type: 'image/png' },
-        { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
-        { url: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
-      ],
-      apple: [
-        { url: '/icons/icon-152x152.png', sizes: '152x152', type: 'image/png' },
-        { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
-        { url: '/icons/icon-384x384.png', sizes: '384x384', type: 'image/png' },
-        { url: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
-      ],
-      shortcut: '/favicon.png',
+      icon: [{ url: '/icon', type: 'image/png' }, { url: '/logo.svg', type: 'image/svg+xml', sizes: 'any' }],
+      apple: [{ url: '/apple-icon', type: 'image/png', sizes: '180x180' }],
+      shortcut: '/icon',
     },
     manifest: '/manifest.json',
     appleWebApp: {
@@ -111,27 +108,28 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       type: "website",
       locale: "en_GH",
-      url: siteUrl,
-      title: `${siteName} | ${siteTagline}`,
-      description: siteDescription,
-      siteName: siteName,
+      url: baseUrl,
+      title: [siteName, siteTagline].filter(Boolean).join(' | ') || 'Online Store Ghana',
+      description: desc,
+      siteName: siteName || 'Store',
       images: [
         {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: siteName,
+          alt: siteName || 'Store - Quality products delivered across Ghana',
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${siteName} | ${siteTagline}`,
-      description: siteDescription,
+      title: [siteName, siteTagline].filter(Boolean).join(' | ') || 'Online Store Ghana',
+      description: desc,
       images: [ogImage],
+      creator: '@store',
     },
     alternates: {
-      canonical: siteUrl,
+      canonical: baseUrl,
     },
   };
 }
@@ -146,7 +144,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { siteName, siteDescription, siteLogo } = await getSiteSettings();
+  const { siteName, siteDescription, siteLogo, siteUrl } = await getSiteSettings();
   return (
     <html lang="en">
       <head>
@@ -160,13 +158,9 @@ export default async function RootLayout({
         <meta name="msapplication-tap-highlight" content="no" />
 
         {/* Apple Touch Icons */}
-        <link rel="apple-touch-icon" href="/icons/icon-152x152.png" />
-        <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png" />
-        <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png" />
-        <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png" />
-
-        {/* Apple Splash Screens */}
-        <link rel="apple-touch-startup-image" href="/icons/icon-512x512.png" />
+        <link rel="apple-touch-icon" href="/apple-icon" />
+        <link rel="icon" href="/icon" type="image/png" />
+        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
 
         <link
           href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
@@ -183,10 +177,10 @@ export default async function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": siteName,
+              "name": siteName || "Store",
               "url": siteUrl,
-              "logo": siteLogo.startsWith('http') ? siteLogo : `${siteUrl}${siteLogo}`,
-              "description": siteDescription,
+              "logo": siteLogo ? (siteLogo.startsWith('http') ? siteLogo : `${siteUrl}${siteLogo}`) : `${siteUrl}/logo.svg`,
+              "description": siteDescription || "Quality perfumes and products delivered across Ghana.",
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "GH",
@@ -195,7 +189,28 @@ export default async function RootLayout({
               "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "availableLanguage": "English"
+                "availableLanguage": "English",
+                "areaServed": "GH"
+              }
+            })
+          }}
+        />
+        {/* Structured Data - WebSite with SearchAction */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": siteName || "Store",
+              "url": siteUrl,
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": `${siteUrl}/shop?search={search_term_string}`
+                },
+                "query-input": "required name=search_term_string"
               }
             })
           }}

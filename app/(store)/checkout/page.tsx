@@ -144,11 +144,14 @@ export default function CheckoutPage() {
       const trackingNumber = `SLI-${trackingId}`;
 
       // 1. Create Order
+      // Detect wholesale order (set by wholesale shop page)
+      const isWholesaleOrder = typeof window !== 'undefined' && localStorage.getItem('wholesale_cart') === 'true';
+
       const { data: order, error: orderError } = await supabase
         .from('orders')
         .insert([{
           order_number: orderNumber,
-          user_id: user?.id || null, // Capture user_id if logged in
+          user_id: user?.id || null,
           email: shippingData.email,
           phone: shippingData.phone,
           status: 'pending',
@@ -161,8 +164,9 @@ export default function CheckoutPage() {
           total: total,
           shipping_method: deliveryMethod,
           payment_method: paymentMethod,
+          order_type: isWholesaleOrder ? 'wholesale' : 'retail',
           shipping_address: shippingData,
-          billing_address: shippingData, // Using same for now
+          billing_address: shippingData,
           metadata: {
             guest_checkout: !user,
             first_name: shippingData.firstName,
@@ -294,6 +298,7 @@ export default function CheckoutPage() {
 
       // 6. Clear Cart & Redirect (For COD)
       clearCart();
+      if (typeof window !== 'undefined') localStorage.removeItem('wholesale_cart');
       router.push(`/order-success?order=${orderNumber}`);
 
     } catch (err: any) {

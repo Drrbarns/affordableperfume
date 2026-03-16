@@ -83,12 +83,13 @@ export default function Home() {
           })));
         }
 
-        // Fetch featured products directly from Supabase
+        // Fetch featured products (exclude wholesale-only)
         const { data: productsData, error: productsError } = await supabase
           .from('products')
           .select('*, product_variants(*), product_images(*)')
           .eq('status', 'active')
           .eq('featured', true)
+          .or('is_wholesale.is.null,is_wholesale.eq.false')
           .order('created_at', { ascending: false })
           .limit(8);
 
