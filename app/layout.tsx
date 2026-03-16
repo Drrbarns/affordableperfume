@@ -54,10 +54,15 @@ export async function generateMetadata(): Promise<Metadata> {
       ? (siteLogo.startsWith('http') ? siteLogo : `${baseUrl}${siteLogo}`)
       : `${baseUrl}/og-default`;
 
+  const fullTitle = [siteName, siteTagline].filter(Boolean).join(' | ');
+  const defaultTitle = (fullTitle && fullTitle.length > 15)
+    ? fullTitle
+    : 'Affordable Perfumes GH | Perfumes, Fashion & More';
+
   return {
     metadataBase: new URL(baseUrl),
     title: {
-      default: [siteName, siteTagline].filter(Boolean).join(' | '),
+      default: defaultTitle,
       template: siteName ? `%s | ${siteName}` : `%s`
     },
     description: desc,
@@ -109,7 +114,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       locale: "en_GH",
       url: baseUrl,
-      title: [siteName, siteTagline].filter(Boolean).join(' | ') || 'Online Store Ghana',
+      title: defaultTitle,
       description: desc,
       siteName: siteName || 'Store',
       images: [
@@ -123,7 +128,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: [siteName, siteTagline].filter(Boolean).join(' | ') || 'Online Store Ghana',
+      title: defaultTitle,
       description: desc,
       images: [ogImage],
       creator: '@store',
