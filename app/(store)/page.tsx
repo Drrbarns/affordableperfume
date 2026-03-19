@@ -169,7 +169,7 @@ export default function Home() {
                 />
               ) : (
                 <Image
-                  src={slide.image || '/hero-1.png'}
+                  src={slide.image || '/hero-areej.png'}
                   alt={`Hero Banner ${index + 1}`}
                   fill
                   className="object-cover"
@@ -227,10 +227,53 @@ export default function Home() {
             </div>
           ))
         ) : (
-          // Fallback/Loading State
-          <div className="absolute inset-0 bg-stone-900 flex items-center justify-center">
-            {siteLogo && <Image src={siteLogo} alt="Loading" width={200} height={200} className="opacity-20 animate-pulse object-contain" />}
-          </div>
+          // Default hero slides when no banners in DB
+          [
+            {
+              image: '/hero-areej.png',
+              tag: 'Luxury Fragrances',
+              heading: 'Areej Perfumes',
+              subtext: 'Luxurious scents you can afford. Premium quality at unbeatable prices.',
+              cta: { text: 'Shop Now', href: '/shop' },
+              cta2: { text: 'View All', href: '/shop' }
+            },
+            {
+              image: '/hero-armaf.png',
+              tag: 'Designer Scents',
+              heading: 'Club de Nuit Intense Man',
+              subtext: 'Discover Armaf and more designer fragrances. Delivered across Ghana.',
+              cta: { text: 'Shop Perfumes', href: '/shop' },
+              cta2: { text: 'View All', href: '/shop' }
+            }
+          ].map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+            >
+              <Image
+                src={slide.image}
+                alt={`Hero ${index + 1}`}
+                fill
+                className="object-cover"
+                priority={index === 0}
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-black/30 z-[5]"></div>
+              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto mt-[-50px]">
+                <p className="text-white text-sm md:text-base tracking-[0.2em] uppercase font-medium mb-6 animate-fade-in-up">{slide.tag}</p>
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight drop-shadow-lg animate-fade-in-up">{slide.heading}</h1>
+                <p className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-10 font-light tracking-wide animate-fade-in-up">{slide.subtext}</p>
+                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 animate-fade-in-up">
+                  <Link href={slide.cta.href} className="bg-white text-gray-900 px-8 py-3 sm:px-10 sm:py-4 rounded-full font-medium text-base sm:text-lg hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300">
+                    {slide.cta.text}
+                  </Link>
+                  <Link href={slide.cta2.href} className="px-8 py-3 sm:px-10 sm:py-4 rounded-full font-medium text-base sm:text-lg text-white border border-white/40 hover:bg-white/10 transition-colors backdrop-blur-sm">
+                    {slide.cta2.text}
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))
         )}
 
         {/* Bottom Features (Desktop) */}
