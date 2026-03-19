@@ -175,16 +175,17 @@ export default function Home() {
                   className="object-cover"
                   priority={index === 0}
                   quality={90}
+                  unoptimized
                 />
               )}
 
-              <div className="absolute inset-0 bg-black/30 z-[5]"></div> {/* 30% black overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-[5]"></div>
 
               {/* Slide Content */}
               <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto mt-[-50px]">
                 <p
                   key={`tag-${currentSlide}`}
-                  className="text-white text-sm md:text-base tracking-[0.2em] uppercase font-medium mb-6 animate-fade-in-up"
+                  className="text-amber-400 text-sm md:text-base tracking-[0.2em] uppercase font-medium mb-6 animate-fade-in-up"
                 >
                   {slide.tag}
                 </p>
@@ -212,7 +213,7 @@ export default function Home() {
                 >
                   <Link
                     href={slide.cta.href || '/shop'}
-                    className="bg-white text-gray-900 px-8 py-3 sm:px-10 sm:py-4 rounded-full font-medium text-base sm:text-lg hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300"
+                    className="bg-amber-600 text-white px-8 py-3 sm:px-10 sm:py-4 rounded-full font-medium text-base sm:text-lg hover:bg-amber-700 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300"
                   >
                     {slide.cta.text}
                   </Link>
@@ -257,14 +258,15 @@ export default function Home() {
                 className="object-cover"
                 priority={index === 0}
                 quality={90}
+                unoptimized
               />
-              <div className="absolute inset-0 bg-black/30 z-[5]"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-[5]"></div>
               <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto mt-[-50px]">
-                <p className="text-white text-sm md:text-base tracking-[0.2em] uppercase font-medium mb-6 animate-fade-in-up">{slide.tag}</p>
+                <p className="text-amber-400 text-sm md:text-base tracking-[0.2em] uppercase font-medium mb-6 animate-fade-in-up">{slide.tag}</p>
                 <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight drop-shadow-lg animate-fade-in-up">{slide.heading}</h1>
                 <p className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-10 font-light tracking-wide animate-fade-in-up">{slide.subtext}</p>
                 <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 animate-fade-in-up">
-                  <Link href={slide.cta.href} className="bg-white text-gray-900 px-8 py-3 sm:px-10 sm:py-4 rounded-full font-medium text-base sm:text-lg hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300">
+                  <Link href={slide.cta.href} className="bg-amber-600 text-white px-8 py-3 sm:px-10 sm:py-4 rounded-full font-medium text-base sm:text-lg hover:bg-amber-700 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300">
                     {slide.cta.text}
                   </Link>
                   <Link href={slide.cta2.href} className="px-8 py-3 sm:px-10 sm:py-4 rounded-full font-medium text-base sm:text-lg text-white border border-white/40 hover:bg-white/10 transition-colors backdrop-blur-sm">
