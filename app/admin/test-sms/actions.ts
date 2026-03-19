@@ -47,15 +47,17 @@ export async function testSmsAction(phone: string, message: string, authToken: s
         const recipient = '+' + cleaned;
 
         // Fetch site name for sender ID
-        let senderId = 'Store';
-        try {
-            const { data: settings } = await supabase
-                .from('site_settings')
-                .select('value')
-                .eq('key', 'site_name')
-                .single();
-            if (settings?.value) senderId = settings.value.substring(0, 11);
-        } catch (e) { }
+        let senderId = process.env.MOOLRE_SMS_SENDER_ID || 'Store';
+        if (!process.env.MOOLRE_SMS_SENDER_ID) {
+            try {
+                const { data: settings } = await supabase
+                    .from('site_settings')
+                    .select('value')
+                    .eq('key', 'site_name')
+                    .single();
+                if (settings?.value) senderId = settings.value.substring(0, 11);
+            } catch (e) { }
+        }
 
         // Make API call per Moolre documentation
         const response = await fetch('https://api.moolre.com/open/sms/send', {

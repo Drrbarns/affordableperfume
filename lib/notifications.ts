@@ -163,7 +163,7 @@ export async function sendSMS({ to, message, senderId }: { to: string; message: 
     }
 
     const recipient = formatPhoneNumber(to);
-    const sid = (senderId || brand.name || 'Store').substring(0, 11);
+    const sid = process.env.MOOLRE_SMS_SENDER_ID || (senderId || brand.name || 'Store').substring(0, 11);
 
     try {
         console.log(`[SMS] Sending to ${maskPhone(recipient)} | Sender: ${sid}`);
