@@ -147,10 +147,7 @@ export default function Home() {
       {renderBanners()}
 
       {/* Hero Section */}
-      <section className="relative w-full h-[70vh] md:h-[90vh] overflow-hidden bg-black">
-
-        {/* Background Slider + Per-Slide Content */}
-        {/* Background Slider + Per-Slide Content */}
+      <section className="relative w-full h-[75vh] md:h-[85vh] overflow-hidden bg-stone-900">
         {heroBanners.length > 0 ? (
           heroBanners.map((slide, index) => (
             <div
@@ -168,61 +165,67 @@ export default function Home() {
                   playsInline
                 />
               ) : (
-                <Image
-                  src={slide.image || '/hero-areej.png'}
-                  alt={`Hero Banner ${index + 1}`}
-                  fill
-                  className="object-cover"
-                  priority={index === 0}
-                  quality={90}
-                  unoptimized
-                />
+                <div className={`absolute inset-0 w-full h-full transform transition-transform duration-[8000ms] ease-out ${index === currentSlide ? 'scale-110' : 'scale-100'}`}>
+                  <Image
+                    src={slide.image || '/hero-areej.png'}
+                    alt={`Hero Banner ${index + 1}`}
+                    fill
+                    className="object-cover"
+                    priority={index === 0}
+                    quality={100}
+                    unoptimized
+                  />
+                </div>
               )}
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-[5]"></div>
+              {/* Gradient Overlay for Text Readability - Darker on the left for left-aligned text */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent z-[5]"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-[5] md:hidden"></div>
 
-              {/* Slide Content */}
-              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto mt-[-50px]">
-                <p
-                  key={`tag-${currentSlide}`}
-                  className="text-amber-400 text-sm md:text-base tracking-[0.2em] uppercase font-medium mb-6 animate-fade-in-up"
-                >
-                  {slide.tag}
-                </p>
-
-                <h1
-                  key={`heading-${currentSlide}`}
-                  className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight drop-shadow-lg animate-fade-in-up"
-                  style={{ animationDelay: '0.1s' }}
-                >
-                  {slide.heading}
-                </h1>
-
-                <p
-                  key={`sub-${currentSlide}`}
-                  className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-10 font-light tracking-wide animate-fade-in-up"
-                  style={{ animationDelay: '0.2s' }}
-                >
-                  {slide.subtext}
-                </p>
-
-                <div
-                  key={`cta-${currentSlide}`}
-                  className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 animate-fade-in-up"
-                  style={{ animationDelay: '0.3s' }}
-                >
-                  <Link
-                    href={slide.cta.href || '/shop'}
-                    className="bg-amber-600 text-white px-8 py-3 sm:px-10 sm:py-4 rounded-full font-medium text-base sm:text-lg hover:bg-amber-700 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300"
+              {/* Slide Content - Left Aligned for Luxury Editorial Feel */}
+              <div className="absolute inset-0 z-10 flex flex-col justify-center px-6 sm:px-12 md:px-20 lg:px-32 max-w-7xl mx-auto">
+                <div className="max-w-2xl mt-12 md:mt-0">
+                  <p
+                    key={`tag-${currentSlide}`}
+                    className="text-amber-300 text-xs sm:text-sm md:text-sm tracking-[0.3em] uppercase font-semibold mb-4 sm:mb-6 animate-fade-in-up"
                   >
-                    {slide.cta.text}
-                  </Link>
-                  <Link
-                    href={slide.cta2.href}
-                    className="px-8 py-3 sm:px-10 sm:py-4 rounded-full font-medium text-base sm:text-lg text-white border border-white/40 hover:bg-white/10 transition-colors backdrop-blur-sm"
+                    {slide.tag}
+                  </p>
+
+                  <h1
+                    key={`heading-${currentSlide}`}
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white mb-6 leading-[1.15] drop-shadow-sm animate-fade-in-up"
+                    style={{ animationDelay: '0.1s' }}
                   >
-                    {slide.cta2.text}
-                  </Link>
+                    {slide.heading}
+                  </h1>
+
+                  <p
+                    key={`sub-${currentSlide}`}
+                    className="text-base md:text-lg lg:text-xl text-white/90 mb-10 font-light tracking-wide leading-relaxed max-w-xl animate-fade-in-up"
+                    style={{ animationDelay: '0.2s' }}
+                  >
+                    {slide.subtext}
+                  </p>
+
+                  <div
+                    key={`cta-${currentSlide}`}
+                    className="flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fade-in-up"
+                    style={{ animationDelay: '0.3s' }}
+                  >
+                    <Link
+                      href={slide.cta.href || '/shop'}
+                      className="inline-flex items-center justify-center bg-white text-black px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-amber-50 hover:text-black transition-colors duration-300 min-w-[180px]"
+                    >
+                      {slide.cta.text}
+                    </Link>
+                    <Link
+                      href={slide.cta2.href}
+                      className="inline-flex items-center justify-center bg-transparent border border-white/70 text-white px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 min-w-[180px]"
+                    >
+                      {slide.cta2.text}
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -251,61 +254,66 @@ export default function Home() {
               key={index}
               className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
             >
-              <Image
-                src={slide.image}
-                alt={`Hero ${index + 1}`}
-                fill
-                className="object-cover"
-                priority={index === 0}
-                quality={90}
-                unoptimized
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-[5]"></div>
-              <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto mt-[-50px]">
-                <p className="text-amber-400 text-sm md:text-base tracking-[0.2em] uppercase font-medium mb-6 animate-fade-in-up">{slide.tag}</p>
-                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight drop-shadow-lg animate-fade-in-up">{slide.heading}</h1>
-                <p className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-10 font-light tracking-wide animate-fade-in-up">{slide.subtext}</p>
-                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 animate-fade-in-up">
-                  <Link href={slide.cta.href} className="bg-amber-600 text-white px-8 py-3 sm:px-10 sm:py-4 rounded-full font-medium text-base sm:text-lg hover:bg-amber-700 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300">
-                    {slide.cta.text}
-                  </Link>
-                  <Link href={slide.cta2.href} className="px-8 py-3 sm:px-10 sm:py-4 rounded-full font-medium text-base sm:text-lg text-white border border-white/40 hover:bg-white/10 transition-colors backdrop-blur-sm">
-                    {slide.cta2.text}
-                  </Link>
+              <div className={`absolute inset-0 w-full h-full transform transition-transform duration-[8000ms] ease-out ${index === currentSlide ? 'scale-110' : 'scale-100'}`}>
+                <Image
+                  src={slide.image}
+                  alt={`Hero ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  priority={index === 0}
+                  quality={100}
+                  unoptimized
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent z-[5]"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-[5] md:hidden"></div>
+              <div className="absolute inset-0 z-10 flex flex-col justify-center px-6 sm:px-12 md:px-20 lg:px-32 max-w-7xl mx-auto">
+                <div className="max-w-2xl mt-12 md:mt-0">
+                  <p className="text-amber-300 text-xs sm:text-sm md:text-sm tracking-[0.3em] uppercase font-semibold mb-4 sm:mb-6 animate-fade-in-up">{slide.tag}</p>
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white mb-6 leading-[1.15] drop-shadow-sm animate-fade-in-up">{slide.heading}</h1>
+                  <p className="text-base md:text-lg lg:text-xl text-white/90 mb-10 font-light tracking-wide leading-relaxed max-w-xl animate-fade-in-up">{slide.subtext}</p>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fade-in-up">
+                    <Link href={slide.cta.href} className="inline-flex items-center justify-center bg-white text-black px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-amber-50 hover:text-black transition-colors duration-300 min-w-[180px]">
+                      {slide.cta.text}
+                    </Link>
+                    <Link href={slide.cta2.href} className="inline-flex items-center justify-center bg-transparent border border-white/70 text-white px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 min-w-[180px]">
+                      {slide.cta2.text}
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
           ))
         )}
 
-        {/* Bottom Features (Desktop) */}
-        <div className="absolute bottom-12 left-0 right-0 z-20 hidden md:flex justify-center items-center gap-16 text-white text-center">
-          <div className="group transition-transform hover:scale-105">
-            <p className="font-serif text-lg font-medium">Fast Delivery</p>
-            <p className="text-xs text-blue-400 font-bold tracking-wider uppercase mt-1">24 - 48 Hours Nationwide</p>
-          </div>
-          <div className="w-px h-10 bg-white/20"></div>
-          <div className="group transition-transform hover:scale-105">
-            <p className="font-serif text-lg font-medium">Direct Import</p>
-            <p className="text-xs text-white/60 font-light tracking-wide uppercase mt-1">From China &amp; Local Suppliers</p>
-          </div>
-          <div className="w-px h-10 bg-white/20"></div>
-          <div className="group transition-transform hover:scale-105">
-            <p className="font-serif text-lg font-medium">Verified Quality</p>
-            <p className="text-xs text-white/60 font-light tracking-wide uppercase mt-1">Every Item Checked</p>
+        {/* Bottom Features (Desktop) - Refined glassmorphism bar */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 hidden md:block bg-black/30 backdrop-blur-md border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-6 lg:px-32 py-5 flex justify-between items-center text-white">
+            <div className="flex items-center gap-4 group cursor-pointer">
+              <i className="ri-truck-line text-2xl text-amber-300 group-hover:scale-110 transition-transform"></i>
+              <div>
+                <p className="text-sm font-medium tracking-wide">Fast Delivery</p>
+                <p className="text-[10px] text-white/60 tracking-widest uppercase mt-0.5">24 - 48 Hours Nationwide</p>
+              </div>
+            </div>
+            <div className="w-px h-8 bg-white/20"></div>
+            <div className="flex items-center gap-4 group cursor-pointer">
+              <i className="ri-global-line text-2xl text-amber-300 group-hover:scale-110 transition-transform"></i>
+              <div>
+                <p className="text-sm font-medium tracking-wide">Direct Import</p>
+                <p className="text-[10px] text-white/60 tracking-widest uppercase mt-0.5">Authentic Supply</p>
+              </div>
+            </div>
+            <div className="w-px h-8 bg-white/20"></div>
+            <div className="flex items-center gap-4 group cursor-pointer">
+              <i className="ri-verified-badge-line text-2xl text-amber-300 group-hover:scale-110 transition-transform"></i>
+              <div>
+                <p className="text-sm font-medium tracking-wide">Verified Quality</p>
+                <p className="text-[10px] text-white/60 tracking-widest uppercase mt-0.5">Every Item Checked</p>
+              </div>
+            </div>
           </div>
         </div>
-
-        {/* Floating "Exclusive Offer" Card (Bottom Left) */}
-        <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 z-20 bg-white rounded-xl p-6 shadow-2xl max-w-[280px] animate-fade-in hidden lg:block">
-          <p className="font-serif text-blue-800 text-lg italic mb-0.5">Exclusive Offer</p>
-          <h3 className="text-3xl font-bold text-gray-900 mb-1">25% Off</h3>
-          <p className="text-xs text-gray-500 font-medium leading-relaxed">
-            On your first order. <br />
-            <Link href="/shop" className="underline text-blue-700 hover:text-blue-900 mt-1 inline-block">Shop now</Link>
-          </p>
-        </div>
-
       </section>
 
       {/* Categories Section */}
