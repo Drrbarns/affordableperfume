@@ -210,18 +210,18 @@ export default function Home() {
 
                   <div
                     key={`cta-${currentSlide}`}
-                    className="flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fade-in-up"
+                    className="flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fade-in-up w-full sm:w-auto"
                     style={{ animationDelay: '0.3s' }}
                   >
                     <Link
                       href={slide.cta.href || '/shop'}
-                      className="inline-flex items-center justify-center bg-white text-black px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-amber-50 hover:text-black transition-colors duration-300 min-w-[180px]"
+                      className="w-full sm:w-auto inline-flex items-center justify-center bg-white text-black px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-amber-50 hover:text-black transition-colors duration-300 min-w-[180px]"
                     >
                       {slide.cta.text}
                     </Link>
                     <Link
                       href={slide.cta2.href}
-                      className="inline-flex items-center justify-center bg-transparent border border-white/70 text-white px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 min-w-[180px]"
+                      className="w-full sm:w-auto inline-flex items-center justify-center bg-transparent border border-white/70 text-white px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 min-w-[180px]"
                     >
                       {slide.cta2.text}
                     </Link>
@@ -272,11 +272,11 @@ export default function Home() {
                   <p className="text-amber-300 text-xs sm:text-sm md:text-sm tracking-[0.3em] uppercase font-semibold mb-4 sm:mb-6 animate-fade-in-up">{slide.tag}</p>
                   <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white mb-6 leading-[1.15] drop-shadow-sm animate-fade-in-up">{slide.heading}</h1>
                   <p className="text-base md:text-lg lg:text-xl text-white/90 mb-10 font-light tracking-wide leading-relaxed max-w-xl animate-fade-in-up">{slide.subtext}</p>
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fade-in-up">
-                    <Link href={slide.cta.href} className="inline-flex items-center justify-center bg-white text-black px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-amber-50 hover:text-black transition-colors duration-300 min-w-[180px]">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fade-in-up w-full sm:w-auto">
+                    <Link href={slide.cta.href} className="w-full sm:w-auto inline-flex items-center justify-center bg-white text-black px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-amber-50 hover:text-black transition-colors duration-300 min-w-[180px]">
                       {slide.cta.text}
                     </Link>
-                    <Link href={slide.cta2.href} className="inline-flex items-center justify-center bg-transparent border border-white/70 text-white px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 min-w-[180px]">
+                    <Link href={slide.cta2.href} className="w-full sm:w-auto inline-flex items-center justify-center bg-transparent border border-white/70 text-white px-10 py-4 text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 min-w-[180px]">
                       {slide.cta2.text}
                     </Link>
                   </div>
