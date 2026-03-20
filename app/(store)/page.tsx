@@ -45,17 +45,17 @@ export default function Home() {
     banners?: Array<{ text: string; active: boolean }>;
   } = {
     hero: {
-      headline: 'Dresses, Electronics, Bags & Shoes — Everything You Need, One Store',
-      subheadline: 'Quality products locally sourced and imported directly from China. Unbeatable prices for individuals and resellers across Ghana.',
-      primaryButtonText: 'Shop Collections',
+      headline: 'Premium Fragrances & Luxury Perfumes',
+      subheadline: 'From signature scents to everyday essentials — authentic perfumes at unbeatable prices. Delivered across Ghana.',
+      primaryButtonText: 'Shop Perfumes',
       primaryButtonLink: '/shop',
-      secondaryButtonText: 'Our Story',
-      secondaryButtonLink: '/about',
+      secondaryButtonText: 'View All',
+      secondaryButtonLink: '/shop',
       // backgroundImage: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop' // Optional override
     },
     banners: [
-      { text: '🚚 Free delivery on orders over GH₵ 500 within Accra!', active: false },
-      { text: '✨ New stock arriving this weekend - Pre-order now!', active: false },
+      { text: '🚚 Free delivery on perfume orders over GH₵ 500 within Accra!', active: false },
+      { text: '✨ New fragrances arriving — pre-order now!', active: false },
       { text: '💳 Secure payments via Mobile Money & Card', active: false }
     ]
   };
@@ -231,21 +231,21 @@ export default function Home() {
             </div>
           ))
         ) : (
-          // Default hero slides when no banners in DB
+          // Default hero slides when no banners in DB (perfume shop only)
           [
             {
               image: '/hero-areej.png',
               tag: 'Luxury Fragrances',
               heading: 'Areej Perfumes',
-              subtext: 'Luxurious scents you can afford. Premium quality at unbeatable prices.',
-              cta: { text: 'Shop Now', href: '/shop' },
+              subtext: 'Luxurious scents you can afford. Premium perfumes at unbeatable prices, delivered across Ghana.',
+              cta: { text: 'Shop Perfumes', href: '/shop' },
               cta2: { text: 'View All', href: '/shop' }
             },
             {
               image: '/hero-armaf.png',
-              tag: 'Designer Scents',
+              tag: 'Designer Perfumes',
               heading: 'Club de Nuit Intense Man',
-              subtext: 'Discover Armaf and more designer fragrances. Delivered across Ghana.',
+              subtext: 'Discover Armaf and more designer fragrances. Authentic perfumes, nationwide delivery.',
               cta: { text: 'Shop Perfumes', href: '/shop' },
               cta2: { text: 'View All', href: '/shop' }
             }
