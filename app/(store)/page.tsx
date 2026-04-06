@@ -24,6 +24,46 @@ export default function Home() {
 
   // Config State - Managed in Code
   const [currentSlide, setCurrentSlide] = useState(0);
+  const defaultHeroSlides = [
+    {
+      image: '/hero-areej.png',
+      tag: 'Luxury Fragrances',
+      heading: 'Areej Perfumes',
+      subtext: 'Luxurious scents you can afford. Premium perfumes at unbeatable prices, delivered across Ghana.',
+      cta: { text: 'Shop Perfumes', href: '/shop' },
+      cta2: { text: 'View All', href: '/shop' }
+    },
+    {
+      image: '/hero-armaf.png',
+      tag: 'Designer Perfumes',
+      heading: 'Club de Nuit Intense Man',
+      subtext: 'Discover Armaf and more designer fragrances. Authentic perfumes, nationwide delivery.',
+      cta: { text: 'Shop Perfumes', href: '/shop' },
+      cta2: { text: 'View All', href: '/shop' }
+    }
+  ];
+
+  const isPerfumeCopy = (value: string) =>
+    /perfume|fragrance|scent|cologne|eau|attar|oud|niche/i.test(value);
+
+  const sanitizeHeroBanner = (banner: any, index: number) => {
+    const fallback = defaultHeroSlides[index % defaultHeroSlides.length];
+    const bannerCopy = `${banner?.name || ''} ${banner?.title || ''} ${banner?.subtitle || ''} ${banner?.button_text || ''}`;
+    const needsPerfumeFallback = !isPerfumeCopy(bannerCopy);
+
+    return {
+      image: banner?.image_url || fallback.image,
+      media_type: banner?.media_type,
+      tag: needsPerfumeFallback ? fallback.tag : (banner?.name || fallback.tag),
+      heading: needsPerfumeFallback ? fallback.heading : (banner?.title || fallback.heading),
+      subtext: needsPerfumeFallback ? fallback.subtext : (banner?.subtitle || fallback.subtext),
+      cta: {
+        text: needsPerfumeFallback ? fallback.cta.text : (banner?.button_text || fallback.cta.text),
+        href: banner?.button_url || '/shop'
+      },
+      cta2: { text: 'View All', href: '/shop' }
+    };
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -72,15 +112,7 @@ export default function Home() {
           .order('sort_order', { ascending: true });
 
         if (bannersData) {
-          setHeroBanners(bannersData.map(b => ({
-            image: b.image_url,
-            media_type: b.media_type,
-            tag: b.name,
-            heading: b.title,
-            subtext: b.subtitle,
-            cta: { text: b.button_text, href: b.button_url },
-            cta2: { text: 'View All', href: '/shop' }
-          })));
+          setHeroBanners(bannersData.map((b, index) => sanitizeHeroBanner(b, index)));
         }
 
         // Fetch featured products (exclude wholesale-only)
@@ -232,24 +264,7 @@ export default function Home() {
           ))
         ) : (
           // Default hero slides when no banners in DB (perfume shop only)
-          [
-            {
-              image: '/hero-areej.png',
-              tag: 'Luxury Fragrances',
-              heading: 'Areej Perfumes',
-              subtext: 'Luxurious scents you can afford. Premium perfumes at unbeatable prices, delivered across Ghana.',
-              cta: { text: 'Shop Perfumes', href: '/shop' },
-              cta2: { text: 'View All', href: '/shop' }
-            },
-            {
-              image: '/hero-armaf.png',
-              tag: 'Designer Perfumes',
-              heading: 'Club de Nuit Intense Man',
-              subtext: 'Discover Armaf and more designer fragrances. Authentic perfumes, nationwide delivery.',
-              cta: { text: 'Shop Perfumes', href: '/shop' },
-              cta2: { text: 'View All', href: '/shop' }
-            }
-          ].map((slide, index) => (
+          defaultHeroSlides.map((slide, index) => (
             <div
               key={index}
               className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
@@ -322,7 +337,7 @@ export default function Home() {
           <AnimatedSection className="flex items-end justify-between mb-12">
             <div>
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-gray-900 mb-4">Shop by Category</h2>
-              <p className="text-gray-600 text-lg max-w-md">From dresses to electronics, bags to shoes</p>
+              <p className="text-gray-600 text-lg max-w-md">Explore perfumes by fragrance families and signature scent profiles</p>
             </div>
             <Link href="/categories" className="hidden md:flex items-center text-blue-800 font-medium hover:text-blue-900 transition-colors">
               View All <i className="ri-arrow-right-line ml-2"></i>
