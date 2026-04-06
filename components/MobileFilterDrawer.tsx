@@ -14,17 +14,17 @@ export default function MobileFilterDrawer({ isOpen, onClose }: MobileFilterDraw
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [selectedRating, setSelectedRating] = useState<number | null>(null);
 
-  const categories = ['Dresses', 'Tops', 'Bottoms', 'Shoes', 'Bags', 'Accessories'];
-  const sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+  const categories = ['Designer', 'Niche', 'Oud', 'Fresh', 'Woody', 'Floral'];
+  const sizes = ['30ml', '50ml', '75ml', '100ml', '125ml', '150ml'];
   const colors = [
-    { name: 'Black', hex: '#000000' },
-    { name: 'White', hex: '#FFFFFF' },
-    { name: 'Red', hex: '#EF4444' },
-    { name: 'Blue', hex: '#3B82F6' },
-    { name: 'Green', hex: '#10B981' },
-    { name: 'Yellow', hex: '#F59E0B' },
-    { name: 'Pink', hex: '#EC4899' },
-    { name: 'Purple', hex: '#8B5CF6' }
+    { name: 'Fresh', hex: '#60A5FA' },
+    { name: 'Citrus', hex: '#F59E0B' },
+    { name: 'Woody', hex: '#8B5CF6' },
+    { name: 'Floral', hex: '#EC4899' },
+    { name: 'Amber', hex: '#92400E' },
+    { name: 'Musk', hex: '#6B7280' },
+    { name: 'Oud', hex: '#111827' },
+    { name: 'Oriental', hex: '#7C3AED' }
   ];
 
   useEffect(() => {
@@ -142,7 +142,7 @@ export default function MobileFilterDrawer({ isOpen, onClose }: MobileFilterDraw
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-3">Size</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-3">Bottle Size</h3>
             <div className="flex flex-wrap gap-2">
               {sizes.map((size) => (
                 <button
@@ -161,7 +161,7 @@ export default function MobileFilterDrawer({ isOpen, onClose }: MobileFilterDraw
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-3">Color</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-3">Scent Family</h3>
             <div className="flex flex-wrap gap-3">
               {colors.map((color) => (
                 <button

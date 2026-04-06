@@ -2,10 +2,10 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Learn about our story, values, and commitment to quality. From Accra to your doorstep — affordable perfumes, fashion, and more.',
+  description: 'Learn about our story, values, and commitment to authentic fragrances. From Accra to your doorstep — affordable perfumes in Ghana.',
   openGraph: {
     title: 'About Us',
-    description: 'Learn about our story and commitment to quality products delivered across Ghana.',
+    description: 'Learn about our story and commitment to authentic perfumes delivered across Ghana.',
     type: 'website',
   },
 };

@@ -18,8 +18,8 @@ interface SEOProps {
 }
 
 export function generateMetadata({
-  title = 'Premium Online Shopping',
-  description = 'Shop quality products at our store. Locally sourced and imported goods delivered to your doorstep.',
+  title = 'Premium Perfumes in Ghana',
+  description = 'Shop authentic perfumes and fragrances delivered to your doorstep across Ghana.',
   keywords = [],
   ogImage = '',
   ogType = 'website',
@@ -30,18 +30,18 @@ export function generateMetadata({
   publishedTime,
   author,
   noindex = false,
-  siteName = 'Online Store',
+  siteName = 'Affordable Perfumes GH',
   siteUrl = 'https://example.com'
 }: SEOProps): Metadata {
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
 
   const defaultKeywords = [
-    'online shopping',
-    'premium products',
-    'buy online',
-    'ecommerce',
-    'fast delivery',
-    'secure shopping'
+    'perfumes ghana',
+    'fragrances accra',
+    'buy perfume online ghana',
+    'designer perfumes',
+    'fast delivery ghana',
+    'authentic fragrances'
   ];
 
   const allKeywords = [...new Set([...keywords, ...defaultKeywords])];
@@ -117,7 +117,7 @@ export function generateProductSchema(product: {
     sku: product.sku,
     brand: {
       '@type': 'Brand',
-      name: product.brand || product.siteName || 'Premium Store'
+      name: product.brand || product.siteName || 'Affordable Perfumes GH'
     },
     offers: {
       '@type': 'Offer',

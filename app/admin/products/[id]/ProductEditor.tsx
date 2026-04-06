@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 export default function ProductEditor({ productId }: { productId: string }) {
-  const [productName, setProductName] = useState('Premium Leather Crossbody Bag');
-  const [category, setCategory] = useState('Bags & Accessories');
+  const [productName, setProductName] = useState('Areej Signature Eau de Parfum');
+  const [category, setCategory] = useState('Designer Perfumes');
   const [price, setPrice] = useState('289.00');
   const [comparePrice, setComparePrice] = useState('349.00');
   const [sku, setSku] = useState('LCB-FG-001');
@@ -125,12 +125,12 @@ export default function ProductEditor({ productId }: { productId: string }) {
                     onChange={(e) => setCategory(e.target.value)}
                     className="w-full px-4 py-3 pr-8 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
                   >
-                    <option>Bags & Accessories</option>
-                    <option>Home Decor</option>
-                    <option>Textiles</option>
-                    <option>Lighting</option>
-                    <option>Wall Art</option>
-                    <option>Kitchen & Dining</option>
+                    <option>Designer Perfumes</option>
+                    <option>Niche Fragrances</option>
+                    <option>Oud Collection</option>
+                    <option>Gift Sets</option>
+                    <option>Body Sprays</option>
+                    <option>Perfume Oils</option>
                   </select>
                 </div>
 

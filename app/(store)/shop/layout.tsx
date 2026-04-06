@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Shop All Products',
-  description: 'Browse our full catalog of perfumes, fashion, electronics, and more. Quality products at affordable prices delivered across Ghana.',
+  title: 'Shop All Perfumes',
+  description: 'Browse our full catalog of authentic perfumes and fragrances at affordable prices with fast delivery across Ghana.',
   openGraph: {
-    title: 'Shop All Products',
-    description: 'Browse perfumes, fashion, and more. Quality products delivered across Ghana.',
+    title: 'Shop All Perfumes',
+    description: 'Browse authentic perfumes and fragrances delivered across Ghana.',
     type: 'website',
   },
 };

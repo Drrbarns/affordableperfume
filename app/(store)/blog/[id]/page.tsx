@@ -94,81 +94,76 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
       `
     },
     '2': {
-      title: '10 Must-Have Products for Your Home This Season',
+      title: 'Top 10 Perfumes to Add to Your Collection This Season',
       image: 'https://readdy.ai/api/search-image?query=Beautiful%20modern%20African%20home%20interior%20with%20stylish%20furniture%20decor%20items%20plants%20bright%20natural%20lighting%20contemporary%20design%20magazine%20quality%20photography&width=1200&height=600&seq=blogpost2&orientation=landscape',
-      category: 'Home & Living',
+      category: 'Fragrance Picks',
       date: 'December 12, 2024',
       readTime: '6 min read',
       author: 'Yaw Darko',
       content: `
-        <p>Transform your living space with these carefully selected must-have products. Whether you're refreshing your décor or starting from scratch, these items will elevate your home's comfort and style.</p>
+        <p>Looking to refresh your fragrance shelf this season? These perfume styles help you cover every mood and occasion, from workday freshness to evening statements.</p>
 
-        <h2>1. Smart LED Lighting</h2>
-        <p>Modern LED bulbs with adjustable brightness and colour temperature can dramatically change your home's ambience. Control them from your phone, set schedules, and reduce energy costs.</p>
+        <h2>1. Fresh Citrus Daily Driver</h2>
+        <p>Choose a clean citrus-forward scent for daytime wear. It feels bright, easy to wear, and performs well in Ghana's warm weather.</p>
 
-        <h2>2. Premium Bedding Set</h2>
-        <p>Invest in quality sheets, duvet covers, and pillows. Good sleep is essential, and premium bedding makes a noticeable difference. Look for breathable fabrics suitable for Ghana's climate.</p>
+        <h2>2. Elegant Floral Signature</h2>
+        <p>A balanced floral fragrance gives a polished, feminine profile that works for both office and weekend settings.</p>
 
-        <h2>3. Air Purifier</h2>
-        <p>With increasing air quality concerns, an air purifier removes dust, pollen, and pollutants, creating a healthier indoor environment for your family.</p>
+        <h2>3. Smooth Woody Fragrance</h2>
+        <p>Woody notes add depth and versatility. They are ideal if you want a mature, confident profile without being too heavy.</p>
 
-        <h2>4. Organisational Storage Solutions</h2>
-        <p>Declutter your space with stylish storage boxes, baskets, and shelving units. A well-organised home feels more spacious and serene.</p>
+        <h2>4. Warm Oriental / Amber Option</h2>
+        <p>For evenings and events, amber and oriental accords create a richer scent trail with stronger presence.</p>
 
-        <h2>5. Indoor Plants</h2>
-        <p>Bring nature indoors with low-maintenance plants like snake plants or pothos. They purify air, add visual interest, and create a calming atmosphere.</p>
+        <h2>5. Oud-Inspired Statement</h2>
+        <p>If you enjoy bold fragrances, an oud-forward perfume brings character and long-lasting projection.</p>
 
-        <h2>6. Quality Cookware Set</h2>
-        <p>Upgrade your kitchen with durable pots and pans. Quality cookware distributes heat evenly, lasts longer, and makes cooking more enjoyable.</p>
+        <h2>6. Clean Musk Layering Scent</h2>
+        <p>A soft musk can be worn alone or layered with other perfumes to boost longevity and create a unique signature.</p>
 
-        <h2>7. Comfortable Throw Pillows</h2>
-        <p>Instantly refresh your living room or bedroom with decorative throw pillows. Mix textures and colours to create visual interest.</p>
+        <h2>7. Date-Night Gourmand</h2>
+        <p>Vanilla, caramel, and sweet-spice notes create a cozy and memorable evening profile.</p>
 
-        <h2>8. Smart Power Strip</h2>
-        <p>Protect your electronics and reduce energy waste with a smart power strip that cuts power to devices in standby mode.</p>
+        <h2>8. Classic Designer Bestseller</h2>
+        <p>Keep one trusted bestseller in your rotation for effortless confidence and broad compliment appeal.</p>
 
-        <h2>9. Bath Towel Set</h2>
-        <p>Luxury doesn't have to be expensive. A set of soft, absorbent towels in coordinating colours makes your bathroom feel like a spa.</p>
+        <h2>9. Gift-Ready Fragrance Set</h2>
+        <p>A matching perfume and body product set is perfect for gifting and gives better value than buying separately.</p>
 
-        <h2>10. Decorative Mirror</h2>
-        <p>Mirrors make spaces feel larger and brighter by reflecting light. Choose a statement piece that complements your décor style.</p>
+        <h2>10. Travel-Size Essential</h2>
+        <p>Carry a smaller bottle or decant for top-ups during long days and special occasions.</p>
 
-        <h2>Shopping Smart</h2>
-        <p>When purchasing home products, consider quality over quantity. It's better to invest in a few well-made items than many cheap ones that won't last. Read reviews, compare prices, and take advantage of seasonal sales.</p>
-
-        <p>Start with the essentials and gradually build your collection. Your home should reflect your personality and meet your practical needs.</p>
+        <h2>Final Tip</h2>
+        <p>Build your collection gradually: one fresh scent, one evening scent, and one all-round signature gives excellent coverage without overspending.</p>
       `
     },
     '3': {
-      title: 'How to Choose Quality Products: A Buyer\'s Guide',
+      title: 'How to Choose Quality Perfumes: A Buyer\'s Guide',
       image: 'https://readdy.ai/api/search-image?query=Person%20examining%20product%20quality%20checking%20labels%20and%20details%20in%20bright%20retail%20setting%20closeup%20hands%20inspecting%20merchandise%20professional%20photography%20clean%20background&width=1200&height=600&seq=blogpost3&orientation=landscape',
       category: 'Buying Guide',
       date: 'December 10, 2024',
       readTime: '7 min read',
       author: 'Kwame Mensah',
       content: `
-        <p>In a market flooded with options, choosing quality products can be challenging. This guide will help you identify genuine quality and make purchasing decisions you won't regret.</p>
+        <p>In a market full of fragrance options, choosing the right perfume can be difficult. This guide helps you identify authentic, high-quality scents and buy with confidence.</p>
 
-        <h2>Understanding Quality Indicators</h2>
-        <p>Quality isn't just about price. A well-made product offers durability, functionality, and value for money. Here's what to look for:</p>
+        <h2>Know the Concentration</h2>
+        <p>Understand concentration levels before buying: EDP generally lasts longer than EDT, while parfum is often the most intense and premium.</p>
 
-        <h3>Material Quality</h3>
-        <p>Examine the materials used. Natural fibres, solid wood, stainless steel, and durable plastics indicate better quality. Avoid products that feel flimsy or have a chemical smell.</p>
+        <h2>Check Authenticity Signals</h2>
+        <p>Use sellers that provide clear batch codes, original packaging photos, and transparent product details. Authentic retailers also maintain consistent pricing and support.</p>
 
-        <h3>Construction and Craftsmanship</h3>
-        <p>Check seams, joints, and finishes. Quality products have neat stitching, smooth edges, and secure fastenings. Poor construction is evident in loose threads, uneven surfaces, and wobbly parts.</p>
+        <h2>Read Scent Notes Carefully</h2>
+        <p>Good listings should include top, heart, and base notes so you know how the fragrance evolves from first spray to dry-down.</p>
 
-        <h3>Brand Reputation</h3>
-        <p>Established brands invest in quality control and customer satisfaction. Research brands before purchasing. Read reviews and check how they handle complaints.</p>
-
-        <h2>Reading Product Descriptions</h2>
-        <p>Detailed product descriptions are a good sign. Quality sellers provide:</p>
+        <h2>Look for Trustworthy Product Pages</h2>
+        <p>Reliable perfume stores provide clear descriptions, return terms, and real customer feedback:</p>
         <ul>
-          <li>Precise dimensions and specifications</li>
-          <li>Material composition</li>
-          <li>Care instructions</li>
-          <li>Warranty information</li>
-          <li>Multiple clear photos from different angles</li>
+          <li>Detailed note breakdown and concentration</li>
+          <li>Bottle size and usage guidance</li>
+          <li>Expected longevity and projection profile</li>
+          <li>Authenticity and sourcing transparency</li>
+          <li>Multiple clear photos of bottle and box</li>
         </ul>
 
         <h2>The Power of Reviews</h2>
@@ -184,12 +179,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
         <p>Be sceptical of products with only perfect 5-star reviews or very few reviews relative to sales.</p>
 
         <h2>Price vs. Value</h2>
-        <p>Expensive doesn't always mean quality, and cheap isn't always poor. Consider:</p>
+        <p>Expensive does not always mean better scent, and cheap does not always mean fake. Consider:</p>
         <ul>
-          <li><strong>Cost per use:</strong> A GHS 200 item used daily for 5 years offers better value than a GHS 50 item replaced yearly</li>
-          <li><strong>Warranty and guarantees:</strong> Quality manufacturers stand behind their products</li>
-          <li><strong>Maintenance costs:</strong> Some cheap items require expensive upkeep</li>
-          <li><strong>Resale value:</strong> Quality items retain value better</li>
+          <li><strong>Cost per wear:</strong> A long-lasting scent can be better value even at a slightly higher price</li>
+          <li><strong>Performance:</strong> Longevity and projection should match your needs</li>
+          <li><strong>Versatility:</strong> Day and night usability increases value</li>
+          <li><strong>Authenticity confidence:</strong> Buy from stores with clear sourcing and support</li>
         </ul>
 
         <h2>Red Flags to Avoid</h2>
@@ -204,30 +199,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
           <li>No physical address or company details</li>
         </ul>
 
-        <h2>Category-Specific Tips</h2>
+        <h2>Fragrance-Specific Tips</h2>
 
-        <h3>Electronics</h3>
+        <h3>Designer Perfumes</h3>
         <ul>
-          <li>Check for official warranty from manufacturer</li>
-          <li>Verify authenticity through serial numbers</li>
-          <li>Compare specifications carefully</li>
-          <li>Research common issues with the model</li>
+          <li>Check packaging quality and bottle finishing</li>
+          <li>Verify consistency with known scent profile</li>
+          <li>Start with trusted bestsellers if you are new</li>
+          <li>Compare performance in your climate</li>
         </ul>
 
-        <h3>Clothing and Textiles</h3>
+        <h3>Niche or Oud Fragrances</h3>
         <ul>
-          <li>Natural fibres often last longer</li>
-          <li>Check fabric weight (heavier usually means quality)</li>
-          <li>Examine stitching and seams</li>
-          <li>Verify colour fastness information</li>
-        </ul>
-
-        <h3>Furniture</h3>
-        <ul>
-          <li>Solid wood beats particle board</li>
-          <li>Test weight capacity</li>
-          <li>Check joinery methods</li>
-          <li>Assess cushion density and spring quality</li>
+          <li>Test first if possible; profiles can be intense</li>
+          <li>Use fewer sprays for stronger formulations</li>
+          <li>Consider occasion and weather before purchase</li>
+          <li>Layer with neutral musks for smoother wear</li>
         </ul>
 
         <h2>Making the Final Decision</h2>
@@ -252,7 +239,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
         </ul>
 
         <h2>Conclusion</h2>
-        <p>Choosing quality products requires research, patience, and critical thinking. Don't rush important purchases. Take time to compare options, read reviews, and verify seller credibility. Quality products cost more upfront but offer better value long-term through durability, performance, and satisfaction.</p>
+        <p>Choosing quality perfumes requires research, patience, and testing. Compare notes, check authentic sellers, and choose scents that match your lifestyle. The right fragrance gives better performance, confidence, and long-term value.</p>
 
         <p>Remember: the bitterness of poor quality lingers long after the sweetness of a low price is forgotten.</p>
       `
@@ -264,11 +251,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
   const relatedPosts = [
     {
       id: id === '1' ? '2' : '1',
-      title: id === '1' ? '10 Must-Have Products for Your Home This Season' : 'The Ultimate Guide to Online Shopping in Ghana',
+      title: id === '1' ? 'Top 10 Perfumes to Add to Your Collection This Season' : 'How to Buy Authentic Perfumes Online in Ghana',
       image: id === '1' ?
         'https://readdy.ai/api/search-image?query=Beautiful%20modern%20African%20home%20interior%20with%20stylish%20furniture%20decor%20items%20plants%20bright%20natural%20lighting%20contemporary%20design%20magazine%20quality%20photography&width=600&height=400&seq=related1&orientation=landscape' :
         'https://readdy.ai/api/search-image?query=Modern%20African%20woman%20shopping%20online%20on%20laptop%20in%20bright%20contemporary%20home%20office%20coffee%20cup%20plants%20natural%20light%20relaxed%20lifestyle%20photography%20minimal%20clean%20background&width=600&height=400&seq=related2&orientation=landscape',
-      category: id === '1' ? 'Home & Living' : 'Shopping Tips'
+      category: id === '1' ? 'Fragrance Picks' : 'Shopping Tips'
     },
     {
       id: id === '3' ? '1' : '3',
@@ -390,7 +377,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
         <div className="mt-16 bg-gradient-to-br from-blue-700 to-blue-900 rounded-2xl p-12 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Enjoyed This Article?</h2>
           <p className="text-blue-100 mb-8 text-lg">
-            Subscribe to our newsletter for more shopping tips and exclusive offers
+            Subscribe to our newsletter for more fragrance tips and exclusive offers
           </p>
           <form className="max-w-md mx-auto flex gap-3">
             <input

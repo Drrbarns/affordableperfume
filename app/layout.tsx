@@ -46,7 +46,7 @@ async function getSiteSettings() {
 export async function generateMetadata(): Promise<Metadata> {
   const { siteName, siteTagline, siteDescription, siteLogo, siteUrl, ogImage: ogImageSetting } = await getSiteSettings();
   const baseUrl = siteUrl.replace(/\/$/, '');
-  const defaultDescription = 'Quality perfumes and products delivered across Ghana. Shop affordable fragrances, fashion, and more from Accra.';
+  const defaultDescription = 'Authentic perfumes and fragrances delivered across Ghana. Shop affordable designer and niche scents from Accra.';
   const desc = siteDescription || defaultDescription;
   const ogImage = ogImageSetting
     ? (ogImageSetting.startsWith('http') ? ogImageSetting : `${baseUrl}${ogImageSetting}`)
@@ -57,7 +57,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const fullTitle = [siteName, siteTagline].filter(Boolean).join(' | ');
   const defaultTitle = (fullTitle && fullTitle.length > 15)
     ? fullTitle
-    : 'Affordable Perfumes GH | Perfumes, Fashion & More';
+    : 'Affordable Perfumes GH | Perfumes & Fragrances';
 
   return {
     metadataBase: new URL(baseUrl),
@@ -71,13 +71,13 @@ export async function generateMetadata(): Promise<Metadata> {
       "Affordable Perfumes Ghana",
       "Buy Perfumes Online Ghana",
       "Fragrances Accra",
-      "Online Store Ghana",
-      "Electronics Ghana",
-      "Bags and Shoes Accra",
-      "Affordable Fashion Ghana",
-      "Accra Online Shopping",
-      "Ghana E-commerce",
-      "Quality Products Accra"
+      "Perfume Shop Ghana",
+      "Designer Perfumes Ghana",
+      "Niche Fragrances Ghana",
+      "Original Perfumes Accra",
+      "Fragrance Store Ghana",
+      "Accra Perfume Delivery",
+      "Ghana E-commerce Perfumes"
     ],
     authors: [{ name: siteName }],
     creator: siteName,
@@ -122,7 +122,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: siteName || 'Store - Quality products delivered across Ghana',
+          alt: siteName || 'Affordable Perfumes GH - authentic fragrances delivered across Ghana',
         },
       ],
     },
@@ -185,7 +185,7 @@ export default async function RootLayout({
               "name": siteName || "Store",
               "url": siteUrl,
               "logo": siteLogo ? (siteLogo.startsWith('http') ? siteLogo : `${siteUrl}${siteLogo}`) : `${siteUrl}/logo.svg`,
-              "description": siteDescription || "Quality perfumes and products delivered across Ghana.",
+              "description": siteDescription || "Authentic perfumes and fragrances delivered across Ghana.",
               "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "GH",

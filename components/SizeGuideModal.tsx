@@ -32,7 +32,7 @@ export default function SizeGuideModal({ isOpen, onClose, category = 'General' }
         { size: '36', waist: '36', hip: '46', inseam: '32', outseam: '42' },
       ]
     },
-    'Shoes': {
+    'Fragrance Bottle Sizes': {
       measurements: ['UK', 'EU', 'US', 'CM'],
       sizes: [
         { size: '5', uk: '5', eu: '38', us: '6', cm: '23.5' },

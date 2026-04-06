@@ -2,10 +2,10 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Shop by Category',
-  description: 'Browse our products by category. Perfumes, fashion, electronics, bags, shoes and more from Accra, Ghana.',
+  description: 'Browse perfumes by category, fragrance family, and scent profile with nationwide delivery from Accra, Ghana.',
   openGraph: {
     title: 'Shop by Category',
-    description: 'Browse products by category. Quality products delivered across Ghana.',
+    description: 'Browse perfumes by category and discover your signature scent.',
     type: 'website',
   },
 };

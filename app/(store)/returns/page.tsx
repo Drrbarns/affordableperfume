@@ -13,16 +13,16 @@ const mockOrders = [
     items: [
       {
         id: 1,
-        name: 'Premium Leather Crossbody Bag',
+        name: 'Areej Signature Eau de Parfum 100ml',
         price: 289,
-        image: 'https://readdy.ai/api/search-image?query=elegant%20premium%20leather%20crossbody%20bag%20in%20deep%20forest%20green%20color%20on%20clean%20minimal%20white%20studio%20background%20with%20soft%20natural%20lighting%20showcasing%20luxury%20craftsmanship&width=400&height=400&seq=return1&orientation=squarish',
+        image: 'https://readdy.ai/api/search-image?query=luxury%20perfume%20bottle%20on%20clean%20white%20studio%20background%20soft%20lighting%20premium%20fragrance%20product%20photography&width=400&height=400&seq=return1&orientation=squarish',
         returnable: true
       },
       {
         id: 2,
-        name: 'Minimalist Ceramic Vase Set',
+        name: 'Armaf Club de Nuit Gift Set',
         price: 159,
-        image: 'https://readdy.ai/api/search-image?query=modern%20minimalist%20ceramic%20vase%20set%20in%20matte%20cream%20and%20charcoal%20colors%20on%20pristine%20white%20background%20elegant%20home%20decor%20sophisticated%20styling&width=400&height=400&seq=return2&orientation=squarish',
+        image: 'https://readdy.ai/api/search-image?query=perfume%20gift%20set%20luxury%20fragrance%20packaging%20on%20minimal%20white%20background%20premium%20product%20shot&width=400&height=400&seq=return2&orientation=squarish',
         returnable: true
       }
     ]
@@ -157,7 +157,7 @@ export default function ReturnsPortalPage() {
                     <p className="font-semibold mb-1">Return Policy Highlights</p>
                     <ul className="space-y-1">
                       <li>• Returns accepted within 30 days of delivery</li>
-                      <li>• Items must be unused with original tags</li>
+                      <li>• Fragrances must be unopened and in original packaging</li>
                       <li>• Free return shipping for defective items</li>
                       <li>• Refunds processed within 5-7 business days</li>
                     </ul>

@@ -11,25 +11,25 @@ interface MobileSearchOverlayProps {
 export default function MobileSearchOverlay({ isOpen, onClose }: MobileSearchOverlayProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [recentSearches, setRecentSearches] = useState([
-    'Summer Dress',
-    'Running Shoes',
-    'Leather Bag',
-    'Sunglasses'
+    'Areej Perfume',
+    'Armaf Club de Nuit',
+    'Oud Fragrance',
+    'Gift Set'
   ]);
 
   const popularSearches = [
     'New Arrivals',
     'Sale Items',
-    'Dresses',
-    'Men\'s Shoes',
-    'Electronics',
-    'Bags & Purses'
+    'Designer Perfumes',
+    'Oud Fragrances',
+    'Gift Sets',
+    'Long Lasting Scents'
   ];
 
   const searchSuggestions = [
-    { name: 'Summer Floral Dress', category: 'Women\'s Clothing', price: 'GH₵289', image: 'https://readdy.ai/api/search-image?query=elegant%20summer%20floral%20dress%20on%20white%20mannequin%20with%20simple%20clean%20white%20studio%20background%20soft%20natural%20lighting%20feminine%20style%20fashion%20photography%20high%20quality%20detailed&width=80&height=80&seq=mob1&orientation=squarish' },
-    { name: 'Classic Leather Handbag', category: 'Bags', price: 'GH₵459', image: 'https://readdy.ai/api/search-image?query=luxury%20brown%20leather%20handbag%20on%20white%20surface%20clean%20minimalist%20white%20studio%20background%20professional%20product%20photography%20high%20quality%20detailed%20premium%20fashion&width=80&height=80&seq=mob2&orientation=squarish' },
-    { name: 'Designer Sunglasses', category: 'Accessories', price: 'GH₵199', image: 'https://readdy.ai/api/search-image?query=stylish%20modern%20sunglasses%20on%20white%20display%20stand%20clean%20white%20studio%20background%20professional%20product%20photography%20high%20quality%20detailed%20fashion%20accessory&width=80&height=80&seq=mob3&orientation=squarish' }
+    { name: 'Areej Signature EDP', category: 'Designer Perfume', price: 'GH₵289', image: 'https://readdy.ai/api/search-image?query=luxury%20perfume%20bottle%20on%20clean%20white%20studio%20background%20premium%20fragrance%20product%20photography&width=80&height=80&seq=mob1&orientation=squarish' },
+    { name: 'Armaf Club de Nuit', category: 'Niche Inspired', price: 'GH₵459', image: 'https://readdy.ai/api/search-image?query=black%20luxury%20perfume%20bottle%20on%20white%20background%20professional%20fragrance%20product%20photo&width=80&height=80&seq=mob2&orientation=squarish' },
+    { name: 'Oud Gold Intense', category: 'Oud Fragrance', price: 'GH₵199', image: 'https://readdy.ai/api/search-image?query=oud%20perfume%20bottle%20gold%20details%20on%20minimal%20white%20background%20product%20photography&width=80&height=80&seq=mob3&orientation=squarish' }
   ];
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function MobileSearchOverlay({ isOpen, onClose }: MobileSearchOve
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search products..."
+              placeholder="Search perfumes..."
               className="w-full pl-10 pr-10 py-3 bg-gray-100 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               autoFocus
             />

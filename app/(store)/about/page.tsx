@@ -18,17 +18,17 @@ export default function AboutPage() {
     {
       icon: 'ri-verified-badge-line',
       title: 'Verified Quality',
-      description: 'Every product is personally inspected before it reaches you. Whether sourced locally or imported from China, quality comes first.'
+      description: 'Every bottle is checked for authenticity and condition before dispatch. Quality and trust always come first.'
     },
     {
       icon: 'ri-money-dollar-circle-line',
       title: 'Unbeatable Prices',
-      description: 'By sourcing directly from manufacturers and local suppliers, we cut out the middleman and pass the savings to you.'
+      description: 'By sourcing from trusted fragrance suppliers, we keep pricing fair while maintaining genuine quality.'
     },
     {
       icon: 'ri-global-line',
-      title: 'Local & Imported',
-      description: 'The best of both worlds — handpicked local products alongside carefully selected imports from trusted Chinese suppliers.'
+      title: 'Authentic Sourcing',
+      description: 'We work with trusted suppliers to bring you original designer and niche fragrances with confidence.'
     },
     {
       icon: 'ri-truck-line',
@@ -41,7 +41,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-white">
       <PageHero
         title="More Than Just A Brand"
-        subtitle="From Accra to your doorstep — quality dresses, electronics, bags, shoes and more at prices that make sense."
+        subtitle="From Accra to your doorstep — authentic perfumes and fragrances at prices that make sense."
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -72,13 +72,13 @@ export default function AboutPage() {
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">How It All Started</h2>
               <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  <strong>{siteName}</strong> started with a simple idea: bring quality products to Ghanaians at fair prices. We saw how people were paying too much for items that could be sourced smarter — so we built a bridge between trusted Chinese manufacturers, local suppliers, and everyday shoppers.
+                  <strong>{siteName}</strong> started with a simple idea: bring authentic perfumes to Ghanaians at fair prices. We saw how hard it was to find genuine fragrances without overpaying, so we built a trusted fragrance-first store.
                 </p>
                 <p>
-                  What began as a small operation in Accra has grown into a full online store offering everything from trendy dresses and stylish bags to the latest electronics and durable shoes. We handpick every product, test it for quality, and price it fairly.
+                  What began as a small operation in Accra has grown into a dedicated perfume destination offering designer, niche, and everyday scents. We curate every fragrance carefully and price it fairly.
                 </p>
                 <p>
-                  Whether you are shopping for yourself, stocking your boutique, or looking for the perfect gift, <strong>{siteName}</strong> has you covered. We combine local sourcing with direct imports to give you the widest selection at the best value.
+                  Whether you are shopping for yourself, gifting a loved one, or stocking your fragrance shelf, <strong>{siteName}</strong> has you covered with trusted products and reliable delivery.
                 </p>
               </div>
             </div>
@@ -108,9 +108,9 @@ export default function AboutPage() {
               <div className="w-16 h-16 bg-blue-700 rounded-2xl flex items-center justify-center mb-8 shadow-lg">
                 <i className="ri-store-2-line text-3xl text-white"></i>
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Everything in One Place</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Your Fragrance Destination</h3>
               <p className="text-gray-600 text-lg leading-relaxed">
-                From fashion to electronics, bags to shoes — we aim to be the only store you need. Our catalogue is constantly expanding with new arrivals sourced from trusted local and international suppliers.
+                From designer bestsellers to hidden gems, we aim to be your trusted perfume destination. Our catalogue keeps growing with new arrivals and authentic fragrance finds.
               </p>
             </div>
             <div className="bg-amber-50 p-10 rounded-3xl border border-amber-100">
@@ -152,7 +152,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">Ready to shop smarter?</h2>
           <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Browse our collection of dresses, electronics, bags, shoes and more. New stock arrives weekly.
+            Browse our collection of authentic perfumes and fragrances. New arrivals land weekly.
           </p>
           <Link
             href="/shop"

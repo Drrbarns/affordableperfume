@@ -1,7 +1,7 @@
 {
-  "name": "Store",
-  "short_name": "Store",
-  "description": "Quality products delivered across Ghana.",
+  "name": "Affordable Perfumes GH",
+  "short_name": "Perfumes GH",
+  "description": "Authentic perfumes delivered across Ghana.",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
@@ -13,7 +13,7 @@
   "categories": [
     "shopping",
     "lifestyle",
-    "fashion"
+    "beauty"
   ],
   "icons": [
     {
@@ -85,9 +85,9 @@
   ],
   "shortcuts": [
     {
-      "name": "Shop Products",
+      "name": "Shop Perfumes",
       "short_name": "Shop",
-      "description": "Browse all products",
+      "description": "Browse all perfumes",
       "url": "/shop?source=pwa-shortcut",
       "icons": [
         {

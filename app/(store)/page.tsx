@@ -315,8 +315,8 @@ export default function Home() {
             <div className="flex items-center gap-4 group cursor-pointer">
               <i className="ri-global-line text-2xl text-amber-300 group-hover:scale-110 transition-transform"></i>
               <div>
-                <p className="text-sm font-medium tracking-wide">Direct Import</p>
-                <p className="text-[10px] text-white/60 tracking-widest uppercase mt-0.5">Authentic Supply</p>
+                <p className="text-sm font-medium tracking-wide">Authentic Sourcing</p>
+                <p className="text-[10px] text-white/60 tracking-widest uppercase mt-0.5">Trusted Fragrance Supply</p>
               </div>
             </div>
             <div className="w-px h-8 bg-white/20"></div>

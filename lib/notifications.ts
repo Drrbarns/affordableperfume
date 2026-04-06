@@ -48,7 +48,7 @@ ${preheader ? `<span style="display:none;max-height:0;overflow:hidden;">${prehea
 <!-- Header -->
 <tr><td style="background:linear-gradient(135deg,${brand.color},${brand.colorDark});padding:32px 40px;text-align:center;">
 <h1 style="margin:0;color:#ffffff;font-size:22px;font-weight:700;letter-spacing:0.5px;">${brand.name}</h1>
-<p style="margin:6px 0 0;color:rgba(255,255,255,0.8);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Premium Quality Products</p>
+<p style="margin:6px 0 0;color:rgba(255,255,255,0.8);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;">Premium Fragrances</p>
 </td></tr>
 
 <!-- Body -->
@@ -437,7 +437,7 @@ export async function sendWelcomeMessage(user: { email: string, firstName: strin
   <p style="margin:0;color:#6b7280;font-size:15px;">We're so glad you're here.</p>
 </div>
 
-<p style="color:#374151;font-size:14px;line-height:1.7;margin:16px 0;">Thank you for joining the ${brand.name || 'our'} family. We source premium quality products directly from our trusted partners at unbeatable prices.</p>
+<p style="color:#374151;font-size:14px;line-height:1.7;margin:16px 0;">Thank you for joining the ${brand.name || 'our'} family. We source authentic perfumes and fragrances from trusted partners at unbeatable prices.</p>
 
 <div style="background-color:#f9fafb;border-radius:12px;padding:20px;margin:20px 0;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0">

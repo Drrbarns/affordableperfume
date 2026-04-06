@@ -71,7 +71,7 @@ export default function Footer() {
               </Link>
               <div className="space-y-4">
                 <p className="text-gray-400/80 leading-relaxed text-base max-w-sm">
-                  Curating the finest selection of premium scents, fashion, and electronics. Excellence delivered across Ghana.
+                  Curating authentic premium scents and fragrances. Excellence delivered across Ghana.
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center gap-3 text-sm text-gray-500">

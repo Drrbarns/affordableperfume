@@ -11,12 +11,12 @@ import { cachedQuery } from '@/lib/query-cache';
 import PageHero from '@/components/PageHero';
 
 function ShopContent() {
-  usePageTitle('Shop All Products');
+  usePageTitle('Shop All Perfumes');
   const searchParams = useSearchParams();
 
   // State
   const [products, setProducts] = useState<any[]>([]);
-  const [categories, setCategories] = useState<any[]>([{ id: 'all', name: 'All Products', count: 0 }]);
+  const [categories, setCategories] = useState<any[]>([{ id: 'all', name: 'All Perfumes', count: 0 }]);
   const [loading, setLoading] = useState(true);
   const [totalProducts, setTotalProducts] = useState(0);
 
@@ -203,8 +203,8 @@ function ShopContent() {
   return (
     <main className="min-h-screen bg-white">
       <PageHero
-        title="Shop All Products"
-        subtitle="Browse our range of dresses, electronics, bags, shoes and more"
+        title="Shop All Perfumes"
+        subtitle="Browse designer, niche, and everyday fragrances with fast delivery across Ghana"
       />
 
       {/* Mobile Filter Toggle */}
@@ -253,7 +253,7 @@ function ShopContent() {
                             : 'text-gray-700 hover:bg-gray-100'
                             }`}
                         >
-                          All Products
+                          All Perfumes
                         </button>
 
                         {/* Parent Categories */}

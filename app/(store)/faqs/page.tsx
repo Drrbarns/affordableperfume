@@ -71,7 +71,7 @@ export default function FAQsPage() {
     {
       category: 'returns',
       question: 'Which items cannot be returned?',
-      answer: 'For hygiene reasons, we cannot accept returns on opened cosmetics, intimate apparel, earrings, or perishable goods. Custom or personalised items are also non-returnable unless defective.'
+      answer: 'For hygiene and authenticity reasons, we cannot accept returns on opened perfumes or used fragrance products. Personalised items are also non-returnable unless defective.'
     },
     {
       category: 'returns',

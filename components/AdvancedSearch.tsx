@@ -23,45 +23,45 @@ export default function AdvancedSearch() {
   const allProducts: SearchSuggestion[] = [
     {
       id: '1',
-      name: 'Premium Wireless Headphones',
-      category: 'Electronics',
+      name: 'Areej Signature Eau de Parfum',
+      category: 'Designer Perfume',
       price: 450,
-      image: 'https://readdy.ai/api/search-image?query=premium%20wireless%20headphones%20with%20sleek%20black%20design%20and%20cushioned%20ear%20cups%20on%20clean%20white%20background%20professional%20product%20photography%20minimalist%20style%20high%20quality&width=200&height=200&seq=search1&orientation=squarish'
+      image: 'https://readdy.ai/api/search-image?query=luxury%20perfume%20bottle%20on%20clean%20white%20background%20professional%20fragrance%20product%20photography&width=200&height=200&seq=search1&orientation=squarish'
     },
     {
       id: '2',
-      name: 'Smart Fitness Watch',
-      category: 'Wearables',
+      name: 'Armaf Club de Nuit Intense',
+      category: 'Niche Inspired',
       price: 320,
-      image: 'https://readdy.ai/api/search-image?query=modern%20smart%20fitness%20watch%20with%20black%20band%20and%20digital%20display%20showing%20health%20metrics%20on%20clean%20white%20background%20professional%20product%20photography%20minimalist%20style&width=200&height=200&seq=search2&orientation=squarish'
+      image: 'https://readdy.ai/api/search-image?query=black%20luxury%20fragrance%20bottle%20on%20white%20studio%20background%20high%20end%20product%20photography&width=200&height=200&seq=search2&orientation=squarish'
     },
     {
       id: '3',
-      name: 'Leather Crossbody Bag',
-      category: 'Fashion',
+      name: 'Oud Gold Reserve',
+      category: 'Oud Fragrance',
       price: 289,
-      image: 'https://readdy.ai/api/search-image?query=elegant%20premium%20leather%20crossbody%20bag%20in%20forest%20green%20color%20on%20clean%20white%20background%20professional%20product%20photography%20luxury%20style%20high%20quality&width=200&height=200&seq=search3&orientation=squarish'
+      image: 'https://readdy.ai/api/search-image?query=oud%20perfume%20bottle%20with%20gold%20details%20on%20white%20background%20product%20photo&width=200&height=200&seq=search3&orientation=squarish'
     },
     {
       id: '4',
-      name: 'Minimalist Ceramic Vase Set',
-      category: 'Home Decor',
+      name: 'Fresh Citrus Cologne',
+      category: 'Fresh Fragrance',
       price: 159,
-      image: 'https://readdy.ai/api/search-image?query=modern%20minimalist%20ceramic%20vase%20set%20in%20cream%20and%20charcoal%20colors%20on%20white%20background%20elegant%20home%20decor%20professional%20photography%20clean%20lines&width=200&height=200&seq=search4&orientation=squarish'
+      image: 'https://readdy.ai/api/search-image?query=citrus%20perfume%20bottle%20minimal%20white%20studio%20background%20professional%20product%20photography&width=200&height=200&seq=search4&orientation=squarish'
     },
     {
       id: '5',
-      name: 'Organic Cotton T-Shirt',
-      category: 'Clothing',
+      name: 'Floral Bloom Eau de Parfum',
+      category: 'Floral Fragrance',
       price: 45,
-      image: 'https://readdy.ai/api/search-image?query=premium%20organic%20cotton%20t-shirt%20in%20white%20color%20on%20clean%20background%20professional%20clothing%20photography%20minimalist%20style%20high%20quality%20fabric&width=200&height=200&seq=search5&orientation=squarish'
+      image: 'https://readdy.ai/api/search-image?query=floral%20perfume%20bottle%20on%20clean%20white%20background%20professional%20fragrance%20product%20photo&width=200&height=200&seq=search5&orientation=squarish'
     },
     {
       id: '6',
-      name: 'Bamboo Desk Organizer',
-      category: 'Office',
+      name: 'Amber Nights Intense',
+      category: 'Oriental Fragrance',
       price: 68,
-      image: 'https://readdy.ai/api/search-image?query=modern%20bamboo%20desk%20organizer%20with%20multiple%20compartments%20on%20clean%20white%20background%20professional%20product%20photography%20minimalist%20office%20style%20high%20quality&width=200&height=200&seq=search6&orientation=squarish'
+      image: 'https://readdy.ai/api/search-image?query=amber%20perfume%20bottle%20on%20white%20background%20luxury%20fragrance%20photography&width=200&height=200&seq=search6&orientation=squarish'
     }
   ];
 
@@ -151,7 +151,7 @@ export default function AdvancedSearch() {
               setIsOpen(false);
             }
           }}
-          placeholder="Search products, categories..."
+          placeholder="Search perfumes, notes, brands..."
           className="w-full pl-12 pr-24 py-3 border-2 border-gray-300 rounded-full focus:border-blue-700 focus:ring-2 focus:ring-blue-200 text-sm"
         />
         <i className="ri-search-line absolute left-4 top-1/2 -translate-y-1/2 text-xl text-gray-400"></i>
@@ -183,7 +183,7 @@ export default function AdvancedSearch() {
         <div className="absolute top-full mt-2 w-full bg-white rounded-xl shadow-2xl border border-gray-200 max-h-96 overflow-y-auto z-50">
           {query.trim() && suggestions.length > 0 && (
             <div className="p-2">
-              <p className="text-xs font-semibold text-gray-500 px-3 py-2">Products</p>
+              <p className="text-xs font-semibold text-gray-500 px-3 py-2">Perfumes</p>
               {suggestions.map((product) => (
                 <Link
                   key={product.id}
@@ -212,7 +212,7 @@ export default function AdvancedSearch() {
           {query.trim() && suggestions.length === 0 && (
             <div className="p-8 text-center">
               <i className="ri-search-line text-4xl text-gray-300 mb-2"></i>
-              <p className="text-gray-500 font-medium">No products found</p>
+              <p className="text-gray-500 font-medium">No perfumes found</p>
               <p className="text-sm text-gray-400 mt-1">Try different keywords</p>
             </div>
           )}
@@ -250,7 +250,7 @@ export default function AdvancedSearch() {
             <div className="p-6">
               <p className="text-xs font-semibold text-gray-500 mb-3">Popular Searches</p>
               <div className="flex flex-wrap gap-2">
-                {['Headphones', 'Watch', 'Bag', 'Vase', 'T-Shirt', 'Organizer'].map((tag) => (
+                {['Areej', 'Armaf', 'Oud', 'Floral', 'Fresh', 'Gift Set'].map((tag) => (
                   <button
                     key={tag}
                     onClick={() => {

@@ -20,12 +20,12 @@ export default async function CategoriesPage() {
 
   // Palette to cycle through for visual variety since DB doesn't have colors
   const palette = [
-    { color: 'from-blue-500 to-blue-700', icon: 'ri-store-2-line' },
-    { color: 'from-blue-500 to-blue-700', icon: 'ri-shopping-bag-3-line' },
-    { color: 'from-purple-500 to-purple-700', icon: 'ri-t-shirt-line' },
-    { color: 'from-amber-500 to-amber-700', icon: 'ri-home-smile-line' },
-    { color: 'from-rose-500 to-rose-700', icon: 'ri-heart-line' },
-    { color: 'from-indigo-500 to-indigo-700', icon: 'ri-star-smile-line' },
+    { color: 'from-blue-500 to-blue-700', icon: 'ri-flask-line' },
+    { color: 'from-blue-500 to-blue-700', icon: 'ri-drop-line' },
+    { color: 'from-purple-500 to-purple-700', icon: 'ri-magic-line' },
+    { color: 'from-amber-500 to-amber-700', icon: 'ri-sparkling-line' },
+    { color: 'from-rose-500 to-rose-700', icon: 'ri-leaf-line' },
+    { color: 'from-indigo-500 to-indigo-700', icon: 'ri-award-line' },
   ];
 
   const categories = categoriesData?.map((c, i) => {
@@ -44,7 +44,7 @@ export default async function CategoriesPage() {
     <div className="min-h-screen bg-white">
       <PageHero
         title="Shop by Category"
-        subtitle="Browse dresses, electronics, bags, shoes and everything in between"
+        subtitle="Browse fragrances by scent family, notes, and signature style"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -105,7 +105,7 @@ export default async function CategoriesPage() {
               className="inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-4 rounded-full font-medium hover:bg-blue-50 transition-colors whitespace-nowrap"
             >
               <i className="ri-search-line"></i>
-              Search All Products
+              Search All Perfumes
             </Link>
             <Link
               href="/contact"

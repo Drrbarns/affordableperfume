@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 import { supabase } from '@/lib/supabase';
 
 export default async function manifest(): Promise<MetadataRoute.Manifest> {
-    let siteName = 'Store';
-    let siteDescription = 'Quality products delivered across Ghana.';
+    let siteName = 'Affordable Perfumes GH';
+    let siteDescription = 'Authentic perfumes delivered across Ghana.';
 
     try {
         const { data: name } = await supabase
@@ -33,14 +33,14 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
         theme_color: '#2563eb',
         dir: 'ltr',
         lang: 'en',
-        categories: ['shopping', 'lifestyle', 'fashion'],
+        categories: ['shopping', 'lifestyle', 'beauty'],
         icons: [
             { src: '/icon', sizes: '32x32', type: 'image/png', purpose: 'any' },
             { src: '/apple-icon', sizes: '180x180', type: 'image/png', purpose: 'any' },
             { src: '/logo.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
         ],
         shortcuts: [
-            { name: 'Shop', short_name: 'Shop', description: 'Browse all products', url: '/shop', icons: [{ src: '/icon', sizes: '32x32' }] },
+            { name: 'Shop', short_name: 'Shop', description: 'Browse all perfumes', url: '/shop', icons: [{ src: '/icon', sizes: '32x32' }] },
             { name: 'Cart', short_name: 'Cart', description: 'View your cart', url: '/cart', icons: [{ src: '/icon', sizes: '32x32' }] },
             { name: 'Track Order', short_name: 'Track', description: 'Track order status', url: '/order-tracking', icons: [{ src: '/icon', sizes: '32x32' }] },
         ],

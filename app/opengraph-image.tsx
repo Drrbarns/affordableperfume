@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'Store - Quality products delivered across Ghana';
+export const alt = 'Affordable Perfumes GH - authentic fragrances delivered across Ghana';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -40,7 +40,7 @@ export default async function OpenGraphImage() {
           Affordable Perfumes
         </div>
         <div style={{ fontSize: 28, opacity: 0.9 }}>
-          Quality products delivered across Ghana
+          Authentic fragrances delivered across Ghana
         </div>
       </div>
     ),
