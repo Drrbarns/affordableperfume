@@ -44,21 +44,28 @@ export default function Home() {
   ];
 
   const isPerfumeCopy = (value: string) =>
-    /perfume|fragrance|scent|cologne|eau|attar|oud|niche/i.test(value);
+    /perfume|fragrance|scent|cologne|eau|attar|oud|niche|aroma/i.test(value);
+
+  const hasNonPerfumeCopy = (value: string) =>
+    /electron|fashion|dress|clothing|apparel|shoe|bag|gadget|phone|laptop|furniture|home\s*decor|china\s*import/i.test(value);
+
+  const sanitizeField = (dbValue: string | undefined, fallbackValue: string) => {
+    if (!dbValue) return fallbackValue;
+    if (hasNonPerfumeCopy(dbValue)) return fallbackValue;
+    return dbValue;
+  };
 
   const sanitizeHeroBanner = (banner: any, index: number) => {
     const fallback = defaultHeroSlides[index % defaultHeroSlides.length];
-    const bannerCopy = `${banner?.name || ''} ${banner?.title || ''} ${banner?.subtitle || ''} ${banner?.button_text || ''}`;
-    const needsPerfumeFallback = !isPerfumeCopy(bannerCopy);
 
     return {
       image: banner?.image_url || fallback.image,
       media_type: banner?.media_type,
-      tag: needsPerfumeFallback ? fallback.tag : (banner?.name || fallback.tag),
-      heading: needsPerfumeFallback ? fallback.heading : (banner?.title || fallback.heading),
-      subtext: needsPerfumeFallback ? fallback.subtext : (banner?.subtitle || fallback.subtext),
+      tag: sanitizeField(banner?.name, fallback.tag),
+      heading: sanitizeField(banner?.title, fallback.heading),
+      subtext: sanitizeField(banner?.subtitle, fallback.subtext),
       cta: {
-        text: needsPerfumeFallback ? fallback.cta.text : (banner?.button_text || fallback.cta.text),
+        text: sanitizeField(banner?.button_text, fallback.cta.text),
         href: banner?.button_url || '/shop'
       },
       cta2: { text: 'View All', href: '/shop' }
@@ -384,8 +391,8 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-gray-900 mb-4">Featured Products</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">Top picks from our latest arrivals</p>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-gray-900 mb-4">Featured Perfumes</h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">Top picks from our latest fragrance arrivals</p>
           </AnimatedSection>
 
           {loading ? (
@@ -448,7 +455,7 @@ export default function Home() {
               href="/shop"
               className="inline-flex items-center justify-center bg-gray-900 text-white px-10 py-4 rounded-full font-medium hover:bg-blue-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 btn-animate"
             >
-              View All Products
+              View All Perfumes
             </Link>
           </div>
         </div>
